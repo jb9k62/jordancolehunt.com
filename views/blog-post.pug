@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  article.blog-post
+    .container
+      header.post-header
+        a.back-link(href="/blog") ← Back to Blog
+
+        h1.post-title= post.title
+
+        if post.tags && post.tags.length > 0
+          .tags
+            each tag in post.tags
+              span.tag= tag
+
+      .post-content
+        //- Render sanitized markdown HTML (unescaped but safe due to DOMPurify)
+        != post.html
+
+      footer.post-footer
+        a.back-link(href="/blog") ← Back to Blog
+
+block scripts
+  //- Syntax highlighting CSS for code blocks
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/styles/github-dark.min.css")

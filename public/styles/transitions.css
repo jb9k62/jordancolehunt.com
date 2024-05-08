@@ -1,0 +1,88 @@
+/* ============================================================================
+   NATIVE VIEW TRANSITIONS - Simple & Clean Implementation
+   ============================================================================
+
+   Native cross-document view transitions for multi-page apps.
+
+   Requirements:
+   - Chrome 126+ OR Safari 18.2+ OR Firefox 144+
+   - No JavaScript needed - pure CSS!
+
+   ============================================================================ */
+
+/* Enable view transitions for all same-origin navigations */
+@view-transition {
+  navigation: auto;
+}
+
+/* Default page transition - simple fade */
+::view-transition-old(root) {
+  /* animation: fade-out 0.3s ease-out; */
+}
+
+::view-transition-new(root) {
+  /* animation: fade-in 0.3s ease-in; */
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ============================================================================
+   OPTIONAL: Per-Element Transitions
+   ============================================================================ */
+
+/* Keep nav visible during transition (no animation) */
+.nav {
+  view-transition-name: nav;
+}
+
+::view-transition-old(nav),
+::view-transition-new(nav) {
+  animation: none;
+}
+
+/* Keep footer visible during transition (no animation) */
+.footer {
+  view-transition-name: footer;
+}
+
+::view-transition-old(footer),
+::view-transition-new(footer) {
+  animation: none;
+}
+
+/* Main content slides and fades */
+main {
+  view-transition-name: main;
+}
+
+::view-transition-old(main) {
+  /* animation: slide-out 0.3s ease-out; */
+}
+
+::view-transition-new(main) {
+  /* animation: slide-in 0.3s ease-in; */
+}
+
+@keyframes slide-out {
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}

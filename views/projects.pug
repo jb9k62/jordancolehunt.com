@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  section.projects
+    .container
+      h1.section-title Projects
+
+      .projects-grid
+        article.project-card
+          h3.project-title Personal Website
+          p.project-description
+            | A modern personal website and blog with NestJS backend serving Pug templates and vanilla JavaScript frontend.
+            | Features a Markdown-based blog system with syntax highlighting, server-side rendering for SEO,
+            | smooth page transitions using the View Transitions API, and GSAP animations.
+            | Includes a contact form with Mailgun integration, XSS sanitisation, and CDN-optimised caching.
+          .project-links
+            a.btn(href="https://github.com/jordancolehunt/jordancolehunt.com", target="_blank") GitHub
+          .tech-stack
+            span.tag NestJS
+            span.tag TypeScript
+            span.tag Pug
+            span.tag Vanilla JS
+            span.tag Markdown
+            span.tag Mailgun
+            span.tag GSAP
+            span.tag highlight.js
+
+        article.project-card
+          h3.project-title Coming Soon
+          p.project-description
+            | More projects will be added here soon. Check back later to see what I've been working on!
+          .tech-stack
+            span.tag TBD

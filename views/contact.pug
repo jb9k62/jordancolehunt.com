@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  section.contact
+    .container
+      h1.section-title Get In Touch
+
+      p.contact-description
+        | I'm always open to discussing new projects, creative ideas, or opportunities.
+        | Feel free to reach out!
+
+      form#contact-form.contact-form(action="/api/contact", method="POST")
+        .form-group
+          label(for="name") Name
+          input#name(type="text", name="name", required)
+
+        .form-group
+          label(for="email") Email
+          input#email(type="email", name="email", required)
+
+        .form-group
+          label(for="message") Message
+          textarea#message(name="message", rows="5", required)
+
+        button.submit-button(type="submit") Send Message
+
+        #form-message.form-message
+
+block scripts
+  script(src="/script.js")

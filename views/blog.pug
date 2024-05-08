@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  section.blog-index
+    .container
+      h1.section-title Blog & Media
+
+      if posts && posts.length > 0
+        .blog-grid
+          each post in posts
+            article.blog-card(class=post.pinned ? 'pinned' : '')
+              h2
+                a(href=`/blog/${post.slug}`)= post.title
+                // if post.pinned
+                //   span.pin-indicator  pin
+              p.excerpt= post.excerpt
+              if post.tags && post.tags.length > 0
+                .tags
+                  each tag in post.tags
+                    span.tag= tag
+      else
+        p.contact-description
+          | No blog posts yet. Check back soon for updates!

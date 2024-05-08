@@ -1,0 +1,11 @@
+mixin nav(currentPath)
+  nav.nav
+    .container
+      a.logo(href="/") JCH
+      ul.nav-links
+        li: a(href="/", class=(currentPath === '/' ? 'active' : '')) Home
+        li: a(href="/skills", class=(currentPath === '/skills' ? 'active' : '')) Skills
+        li: a(href="/projects", class=(currentPath === '/projects' ? 'active' : '')) Projects
+        li: a(href="/about", class=(currentPath === '/about' ? 'active' : '')) About
+        li: a(href="/blog", class=(currentPath && currentPath.startsWith('/blog') ? 'active' : '')) Blog
+        li: a(href="/contact", class=(currentPath === '/contact' ? 'active' : '')) Contact

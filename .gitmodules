@@ -1,0 +1,3 @@
+[submodule "content"]
+	path = content
+	url = https://github.com/jb9k62/blog-content-private.git
