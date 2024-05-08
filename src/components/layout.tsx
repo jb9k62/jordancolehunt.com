@@ -18,10 +18,8 @@ const libre_franklin = Libre_Franklin({
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className={chivo.variable + " " + libre_franklin.variable}>
-        {children}
-      </body>
-    </html>
+    <div className={chivo.variable + " " + libre_franklin.variable}>
+      {children}
+    </div>
   );
 }

@@ -32,28 +32,29 @@ export default function Component() {
             projects that demonstrate my strong capacity for team collaboration
             and self-motivation. My JavaScript/TypeScript is the sharpest skill
             in my toolbox, whether in browser or Node.js environments. Beyond
-            this, I&apos;ve made contributions to projects across a diverse range of
-            technologies like Kotlin, C# and Scala. Currently, I&apos;m diving deep
-            into Python, Postgres, Cloud and Ops, and exploring some low-code
-            tools.
+            this, I&apos;ve made contributions to projects across a diverse
+            range of technologies like Kotlin, C# and Scala. Currently, I&apos;m
+            diving deep into Python, Postgres, Cloud and Ops, and exploring some
+            low-code tools.
           </p>
           <p className="text-gray-300 leading-relaxed pt-5">
             For me, programming is more than just a profession; it&apos;s a
             fulfilling journey that encompasses creativity, collaboration,
             technical prowess, and adaptability. It offers a platform to connect
             with users, influence businesses, and make a meaningful impact on
-            people&apos;s lives. I&apos;m a committed collaborator, thriving on exchanging
-            ideas, imparting knowledge, and fostering a continuous learning
-            environment.
+            people&apos;s lives. I&apos;m a committed collaborator, thriving on
+            exchanging ideas, imparting knowledge, and fostering a continuous
+            learning environment.
           </p>
           <p className="text-gray-300 leading-relaxed pt-5">
-            I live in Durban, South Africa with my beautiful girlfriend and
-            son. I&apos;m {new Date().getFullYear() - 1991} years old and enjoy board
+            I live in Durban, South Africa with my beautiful girlfriend and son.
+            I&apos;m {new Date().getFullYear() - 1991} years old and enjoy board
             sports, lifting weights and video games.
           </p>
           <p className="text-gray-300 leading-relaxed pt-5">
-            A staunch advocate for life-long learning, I&apos;m dedicated to ongoing
-            professional and personal development. Myers-Briggs Type: ENFJ.
+            A staunch advocate for life-long learning, I&apos;m dedicated to
+            ongoing professional and personal development. Myers-Briggs Type:
+            ENFJ.
           </p>
           <p className="text-gray-300 leading-relaxed pt-5 italic">
             An ENFJ, often referred to as a Protagonist, exhibits traits of
@@ -180,8 +181,32 @@ export default function Component() {
           </div>
         </section>
       </main>
-      <footer className="bg-gray-800 py-6 text-center text-sm text-gray-400">
+      <footer className="bg-gray-800 py-6 text-center text-sm text-gray-400 flex justify-center">
         © {new Date().getFullYear()} Jordan Cole Hunt. All rights reserved.
+        <a
+          className="text-gray-400 transition-colors hover:text-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 dark:focus:ring-gray-300 dark:focus:ring-offset-gray-800 ml-2"
+          href="https://www.github.com/jb9k62"
+          target="_blank"
+        >
+          <GithubIcon className="h-6 w-6" />
+          <span className="sr-only">GitHub</span>
+        </a>
+        <a
+          className="text-gray-400 transition-colors hover:text-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 dark:focus:ring-gray-300 dark:focus:ring-offset-gray-800 ml-2"
+          href="https://www.github.com/jordanch"
+          target="_blank"
+        >
+          <GithubIcon className="h-6 w-6" />
+          <span className="sr-only">GitHub</span>
+        </a>
+        <a
+          className="text-gray-400 transition-colors hover:text-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 dark:focus:ring-gray-300 dark:focus:ring-offset-gray-800 ml-2"
+          href="https://www.linkedin.com/in/jordancolehunt"
+          target="_blank"
+        >
+          <LinkedinIcon className="h-6 w-6" />
+          <span className="sr-only">LinkedIn</span>
+        </a>
       </footer>
     </div>
   );
