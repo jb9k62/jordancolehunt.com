@@ -19,6 +19,8 @@ export default function Component() {
     message: false,
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const formSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const errors = {
@@ -31,6 +33,7 @@ export default function Component() {
     if (Object.values(errors).some((error) => error)) {
       return;
     }
+    setIsSubmitting(true);
 
     const response = await fetch("/api/contact", {
       method: "POST",
@@ -39,6 +42,7 @@ export default function Component() {
       },
       body: JSON.stringify(formData),
     });
+    setIsSubmitting(false);
     const data = await response.json();
 
     if (response.ok) {
@@ -255,7 +259,7 @@ export default function Component() {
                   <p className="text-red-500">Cannot be empty</p>
                 )}
               </div>
-              <Button className="w-full" type="submit">
+              <Button className="w-full" type="submit" disabled={isSubmitting}>
                 Send Message
               </Button>
             </form>
