@@ -175,7 +175,7 @@ export default function Component() {
                 &quot;Jordan is a highly technically skilled and curious person.
                 On top of that he has a great deal of empathy and the ability to
                 assess from perspectives other than his own. He has shown great
-                self awareness in the time that I've known him and a constant
+                self awareness in the time that I&apos;ve known him and a constant
                 drive for meaning and purpose. He will challenge the status quo
                 to cultivate the best possible environment for him and those
                 around him. I believe Jordan will excel in any Engineering role
