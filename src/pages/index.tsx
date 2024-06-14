@@ -3,8 +3,59 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function Component() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
+
+  const formSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const errors = {
+      name: !formData.name,
+      email: !formData.email,
+      message: !formData.message,
+    };
+    setFormErrors(errors);
+
+    if (Object.values(errors).some((error) => error)) {
+      return;
+    }
+
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+    const data = await response.json();
+
+    if (response.ok) {
+      alert(data.message);
+    } else {
+      alert(data.error);
+    }
+  };
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+  };
+
   return (
     <div className="flex flex-col min-h-[100dvh] bg-gray-950 text-gray-50">
       <header className="flex items-center justify-between px-6 py-4 border-b border-gray-800">
@@ -31,11 +82,11 @@ export default function Component() {
             I am an accomplished developer with a robust portfolio of successful
             projects that demonstrate my strong capacity for team collaboration
             and self-motivation. My JavaScript/TypeScript is the sharpest skill
-            in my toolbox, whether in browser or Node.js environments. Beyond
-            this, I&apos;ve made contributions to projects across a diverse
-            range of technologies like Kotlin, C# and Scala. Currently, I&apos;m
-            diving deep into Python, Postgres, Cloud and Ops, and exploring some
-            low-code tools.
+            in my toolbox, whether in browser, Node.js or React Native
+            environments. Beyond this, I&apos;ve made contributions to projects
+            across a diverse range of technologies like Kotlin, C# and Scala.
+            Currently, I&apos;m diving deep into Python, Postgres, Cloud and
+            Ops, and exploring some low-code tools.
           </p>
           <p className="text-gray-300 leading-relaxed pt-5">
             For me, programming is more than just a profession; it&apos;s a
@@ -47,7 +98,7 @@ export default function Component() {
             learning environment.
           </p>
           <p className="text-gray-300 leading-relaxed pt-5">
-            I live in Durban, South Africa with my beautiful girlfriend and son.
+            I live in Durban, South Africa with my beautiful partner and son.
             I&apos;m {new Date().getFullYear() - 1991} years old and enjoy board
             sports, lifting weights and video games.
           </p>
@@ -148,31 +199,61 @@ export default function Component() {
         <section className="mb-12" id="contact">
           <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
           <div className="bg-gray-800 p-6 rounded-md">
-            <form className="grid gap-4">
+            <form className="grid gap-4" onSubmit={formSubmitHandler}>
               <div className="grid gap-1.5">
                 <Label htmlFor="name">Name</Label>
                 <Input
-                  className="bg-gray-700 text-gray-50 focus:bg-gray-600 focus:text-gray-50"
+                  value={formData.name}
+                  className={cn(
+                    "bg-gray-700 text-gray-50 focus:bg-gray-600 focus:text-gray-50",
+                    {
+                      "!border-red-500": formErrors.name,
+                    }
+                  )}
                   id="name"
                   placeholder="Your name"
+                  onChange={handleInputChange}
                 />
+                {formErrors.name && (
+                  <p className="text-red-500">Cannot be empty</p>
+                )}
               </div>
               <div className="grid gap-1.5">
                 <Label htmlFor="email">Email</Label>
                 <Input
-                  className="bg-gray-700 text-gray-50 focus:bg-gray-600 focus:text-gray-50"
+                  value={formData.email}
+                  className={cn(
+                    "bg-gray-700 text-gray-50 focus:bg-gray-600 focus:text-gray-50",
+                    {
+                      "!border-red-500": formErrors.name,
+                    }
+                  )}
                   id="email"
                   placeholder="Your email"
                   type="email"
+                  onChange={handleInputChange}
                 />
+                {formErrors.email && (
+                  <p className="text-red-500">Cannot be empty</p>
+                )}
               </div>
               <div className="grid gap-1.5">
                 <Label htmlFor="message">Message</Label>
                 <Textarea
-                  className="bg-gray-700 text-gray-50 focus:bg-gray-600 focus:text-gray-50"
+                  value={formData.message}
+                  className={cn(
+                    "bg-gray-700 text-gray-50 focus:bg-gray-600 focus:text-gray-50",
+                    {
+                      "!border-red-500": formErrors.name,
+                    }
+                  )}
                   id="message"
                   placeholder="Your message"
+                  onChange={handleInputChange}
                 />
+                {formErrors.message && (
+                  <p className="text-red-500">Cannot be empty</p>
+                )}
               </div>
               <Button className="w-full" type="submit">
                 Send Message
