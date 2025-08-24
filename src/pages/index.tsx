@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -125,25 +126,59 @@ export default function Component() {
         <main className="flex-1 max-w-7xl mx-auto px-6 py-12 md:px-12">
           {/* Hero Section */}
           <section className={cn(
-            "mb-20 text-center transition-all duration-1000 delay-500",
+            "mb-20 transition-all duration-1000 delay-500",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur-3xl"></div>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent relative">
-                Hi, I'm Jordan
-              </h1>
-            </div>
-            <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Full-stack developer passionate about creating exceptional digital experiences through clean code and collaborative innovation.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="#contact" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl text-center">
-                Get In Touch
-              </Link>
-              <Link href="#skills" className="border border-slate-600 hover:border-blue-400 text-slate-300 hover:text-blue-400 px-8 py-3 rounded-full font-semibold transition-all duration-200 hover:bg-slate-800/50 text-center">
-                Explore Skills
-              </Link>
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
+              {/* Profile Picture */}
+              <div className={cn(
+                "relative transition-all duration-1000 delay-700",
+                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+              )}>
+                <div className="relative">
+                  {/* Animated border */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-full animate-pulse"></div>
+                  <div className="absolute inset-1 bg-slate-950 rounded-full"></div>
+                  
+                  {/* Profile image */}
+                  <div className="relative">
+                    <Image
+                      src="/Jordan Hunt.JPG"
+                      alt="Jordan Cole Hunt"
+                      width={280}
+                      height={280}
+                      className="relative z-10 rounded-full object-cover w-64 h-64 lg:w-80 lg:h-80 border-4 border-slate-800 shadow-2xl"
+                      priority
+                    />
+                    
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-2xl animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Text Content */}
+              <div className="text-center lg:text-left flex-1 max-w-2xl">
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur-3xl lg:translate-x-0 lg:translate-y-0"></div>
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent relative leading-tight">
+                    Hi, I&apos;m Jordan
+                  </h1>
+                </div>
+                
+                <p className="text-lg md:text-xl lg:text-2xl text-slate-300 mb-8 leading-relaxed">
+                  Full-stack developer passionate about creating exceptional digital experiences through clean code and collaborative innovation.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                  <Link href="#contact" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl text-center">
+                    Get In Touch
+                  </Link>
+                  <Link href="#skills" className="border border-slate-600 hover:border-blue-400 text-slate-300 hover:text-blue-400 px-8 py-3 rounded-full font-semibold transition-all duration-200 hover:bg-slate-800/50 text-center">
+                    Explore Skills
+                  </Link>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -167,7 +202,7 @@ export default function Component() {
                 
                 <div className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 shadow-xl">
                   <p className="text-slate-300 leading-relaxed">
-                    Beyond this, I've made contributions to projects across a diverse range of technologies like <span className="text-purple-400 font-semibold">Kotlin, C# and Scala</span>. Currently, I'm diving deep into <span className="text-green-400 font-semibold">Python, Postgres, Cloud and Ops</span>, and exploring some low-code tools.
+                    Beyond this, I&apos;ve made contributions to projects across a diverse range of technologies like <span className="text-purple-400 font-semibold">Kotlin, C# and Scala</span>. Currently, I&apos;m diving deep into <span className="text-green-400 font-semibold">Python, Postgres, Cloud and Ops</span>, and exploring some low-code tools.
                   </p>
                 </div>
               </div>
@@ -175,13 +210,13 @@ export default function Component() {
               <div className="space-y-6">
                 <div className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 shadow-xl">
                   <p className="text-slate-300 leading-relaxed">
-                    For me, programming is more than just a profession; it's a fulfilling journey that encompasses <span className="text-blue-400 font-semibold">creativity, collaboration, technical prowess, and adaptability</span>. It offers a platform to connect with users, influence businesses, and make a meaningful impact on people's lives.
+                    For me, programming is more than just a profession; it&apos;s a fulfilling journey that encompasses <span className="text-blue-400 font-semibold">creativity, collaboration, technical prowess, and adaptability</span>. It offers a platform to connect with users, influence businesses, and make a meaningful impact on people&apos;s lives.
                   </p>
                 </div>
                 
                 <div className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 shadow-xl">
                   <p className="text-slate-300 leading-relaxed">
-                    I live in <span className="text-purple-400 font-semibold">Durban, South Africa</span> with my beautiful partner and son. I'm {new Date().getFullYear() - 1991} years old and enjoy board sports, lifting weights and video games.
+                    I live in <span className="text-purple-400 font-semibold">Durban, South Africa</span> with my beautiful partner and son. I&apos;m {new Date().getFullYear() - 1991} years old and enjoy board sports, lifting weights and video games.
                   </p>
                 </div>
               </div>
@@ -280,9 +315,9 @@ export default function Component() {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               <div className="group bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 relative">
-                <div className="absolute top-6 right-6 text-blue-400/20 text-6xl font-serif">"</div>
+                <div className="absolute top-6 right-6 text-blue-400/20 text-6xl font-serif">&ldquo;</div>
                 <blockquote className="text-slate-300 leading-relaxed text-lg relative z-10">
-                  Jordan is a highly technically skilled and curious person. On top of that he has a great deal of empathy and the ability to assess from perspectives other than his own. He has shown great self awareness in the time that I've known him and a constant drive for meaning and purpose. He will challenge the status quo to cultivate the best possible environment for him and those around him. I believe Jordan will excel in any Engineering role especially if he gets to interface with / manage other engineers.
+                  Jordan is a highly technically skilled and curious person. On top of that he has a great deal of empathy and the ability to assess from perspectives other than his own. He has shown great self awareness in the time that I&apos;ve known him and a constant drive for meaning and purpose. He will challenge the status quo to cultivate the best possible environment for him and those around him. I believe Jordan will excel in any Engineering role especially if he gets to interface with / manage other engineers.
                 </blockquote>
                 <div className="mt-6 pt-6 border-t border-slate-700/50">
                   <div className="flex items-center">
@@ -298,7 +333,7 @@ export default function Component() {
               </div>
               
               <div className="group bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 relative">
-                <div className="absolute top-6 right-6 text-purple-400/20 text-6xl font-serif">"</div>
+                <div className="absolute top-6 right-6 text-purple-400/20 text-6xl font-serif">&ldquo;</div>
                 <blockquote className="text-slate-300 leading-relaxed text-lg relative z-10">
                   Jordan has a vibrant positive can-do attitude to tackling all tasks and obstacles presented to him and is a great team member with his technical knowhow and his team comradery. It was a great pleasure managing and working with Jordan through various projects.
                 </blockquote>
@@ -325,7 +360,7 @@ export default function Component() {
               <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent">Get in Touch</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
               <p className="text-slate-400 mt-6 max-w-2xl mx-auto">
-                Ready to bring your next project to life? Let's discuss how we can work together to create something amazing.
+                Ready to bring your next project to life? Let&apos;s discuss how we can work together to create something amazing.
               </p>
             </div>
             
