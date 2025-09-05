@@ -185,7 +185,7 @@ export default function Component() {
                   {/* Profile image */}
                   <div className="relative">
                     <Image
-                      src="/Jordan Hunt.JPG"
+                      src="/profile.jpeg"
                       alt="Jordan Cole Hunt"
                       width={280}
                       height={280}
