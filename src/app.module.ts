@@ -7,6 +7,7 @@ import { ContactController } from './controllers/contact.controller';
 import { BlogController } from './controllers/blog.controller';
 import { MailService } from './services/mail.service';
 import { BlogService } from './services/blog.service';
+import { ConfigService } from './services/config.service';
 
 @Module({
   imports: [
@@ -17,6 +18,6 @@ import { BlogService } from './services/blog.service';
     }),
   ],
   controllers: [AppController, PagesController, ContactController, BlogController],
-  providers: [MailService, BlogService],
+  providers: [MailService, BlogService, ConfigService],
 })
 export class AppModule {}

@@ -1,8 +1,10 @@
 import { Controller, Get, Render, Req } from '@nestjs/common';
 import { Request } from 'express';
+import { ConfigService } from '../services/config.service';
 
 @Controller()
 export class PagesController {
+  constructor(private readonly configService: ConfigService) {}
   @Get()
   @Render('index')
   index(@Req() req: Request) {
@@ -29,7 +31,9 @@ export class PagesController {
     return {
       title: 'Projects - JCH',
       page: 'projects',
-      currentPath: req.path
+      currentPath: req.path,
+      githubUsername: this.configService.getGithubUsername(),
+      githubUrl: this.configService.getGithubUrl()
     };
   }
 
