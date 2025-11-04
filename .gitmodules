@@ -1,3 +1,15 @@
 [submodule "content"]
 	path = content
 	url = https://github.com/jb9k62/blog-content-private.git
+[submodule "portfolio/dino-park"]
+	path = portfolio/dino-park
+	url = git@github.com:jb9k62/dino-park.git
+[submodule "portfolio/rick-and-morty"]
+	path = portfolio/rick-and-morty
+	url = git@github.com:jb9k62/rick-and-morty.git
+[submodule "portfolio/roman-to-int"]
+	path = portfolio/roman-to-int
+	url = git@github.com:jb9k62/roman-numerals-to-integers.git
+[submodule "portfolio/race-sim"]
+	path = portfolio/race-sim
+	url = git@github.com:jb9k62/race-sim.git
