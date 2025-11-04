@@ -26,8 +26,19 @@ block content
             span.tag highlight.js
 
         article.project-card
-          h3.project-title Coming Soon
+          h3.project-title Dino Park
           p.project-description
-            | More projects will be added here soon. Check back later to see what I've been working on!
+            | A dinosaur park management system built with pure functional programming principles.
+            | Processes real-time events from an external API to manage a 26×16 grid of park cells,
+            | tracking dinosaur feeding, movement, and maintenance needs. Features immutable data structures
+            | throughout, a three-panel UI with safety indicators, and comprehensive test coverage demonstrating
+            | clean functional architecture.
+          .project-links
+            a.btn(href=`${githubUrl}/dino-park`, target="_blank") GitHub
           .tech-stack
-            span.tag TBD
+            span.tag React
+            span.tag Vite
+            span.tag Vitest
+            span.tag JavaScript
+            span.tag Functional Programming
+            span.tag Immutable Data
