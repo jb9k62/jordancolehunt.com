@@ -8,4 +8,5 @@ mixin nav(currentPath)
         li: a(href="/projects", class=(currentPath === '/projects' ? 'active' : '')) Projects
         li: a(href="/about", class=(currentPath === '/about' ? 'active' : '')) About
         li: a(href="/blog", class=(currentPath && currentPath.startsWith('/blog') ? 'active' : '')) Blog
+        li: a(href="/cv", class=(currentPath === '/cv' ? 'active' : '')) CV
         li: a(href="/contact", class=(currentPath === '/contact' ? 'active' : '')) Contact

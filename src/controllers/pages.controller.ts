@@ -56,4 +56,15 @@ export class PagesController {
       currentPath: req.path
     };
   }
+
+  @Get('cv')
+  @Render('cv')
+  cv(@Req() req: Request) {
+    return {
+      title: 'CV - JCH',
+      page: 'cv',
+      currentPath: req.path,
+      cvPath: '/cv/resume.pdf'
+    };
+  }
 }

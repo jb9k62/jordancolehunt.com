@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  section.cv
+    .container
+      .cv-header
+        h1.section-title Curriculum Vitae
+        a.cv-download-btn(href=cvPath, download="Jordan_Cole_Hunt_CV.pdf")
+          span.download-icon ↓
+          | Download CV
+
+      .cv-viewer
+        object.cv-object(
+          data=cvPath,
+          type="application/pdf",
+          aria-label="Jordan Cole Hunt CV PDF"
+        )
+          .cv-fallback
+            p Your browser doesn't support embedded PDFs.
+            a.cv-fallback-link(href=cvPath, download="Jordan_Cole_Hunt_CV.pdf") Click here to download the PDF

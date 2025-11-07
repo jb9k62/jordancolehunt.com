@@ -505,6 +505,116 @@
 }
 
 /* =============================================================================
+   CV SECTION
+   ============================================================================= */
+
+.cv {
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+.cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cv-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background-color: var(--cyan);
+    color: var(--navy);
+    border: 2px solid var(--cyan);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.cv-download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--off-white);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.cv-download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.5);
+}
+
+.cv-download-btn:hover::before {
+    left: 0;
+}
+
+.download-icon {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.cv-viewer {
+    width: 100%;
+    height: calc(100vh - 200px);
+    min-height: 600px;
+    background-color: var(--navy-light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cv-object {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.cv-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+.cv-fallback p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.cv-fallback-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    color: var(--cyan);
+    border: 2px solid var(--cyan);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.cv-fallback-link:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    transform: translateY(-3px);
+}
+
+/* =============================================================================
    CONTACT SECTION & FORMS
    ============================================================================= */
 
@@ -668,6 +778,21 @@
 
     .post-title {
         font-size: 2rem;
+    }
+
+    .cv-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cv-download-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .cv-viewer {
+        height: calc(100vh - 250px);
+        min-height: 500px;
     }
 }
 
