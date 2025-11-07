@@ -9,6 +9,14 @@ block content
         | I'm always open to discussing new projects, creative ideas, or opportunities.
         | Feel free to reach out!
 
+      .social-links
+        a.social-link(href="https://github.com/jb9k62", target="_blank", rel="noopener noreferrer", aria-label="GitHub Profile")
+          i(data-lucide="github")
+          span GitHub
+        a.social-link(href="https://linkedin.com/in/jordancolehunt", target="_blank", rel="noopener noreferrer", aria-label="LinkedIn Profile")
+          i(data-lucide="linkedin")
+          span LinkedIn
+
       form#contact-form.contact-form(action="/api/contact", method="POST")
         .form-group
           label(for="name") Name
@@ -28,3 +36,6 @@ block content
 
 block scripts
   script(src="/script.js")
+  script.
+    // Initialize Lucide icons
+    lucide.createIcons();
