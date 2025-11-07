@@ -26,6 +26,28 @@ block content
             span.tag highlight.js
 
         article.project-card
+          h3.project-title Vertical Lane Racer
+          p.project-description
+            | An educational terminal-based racing game showcasing modern JavaScript and Python features through identical implementations.
+            | Features 4 AI-controlled cars racing down vertical lanes, dodging dynamically spawned obstacles. Built with a strategy pattern
+            | architecture that's AI-ready, using async/await for concurrent updates and complete state serialisation for future integration
+            | with LLMs or vision models. Demonstrates feature parity between ES2020+ JavaScript (private fields, generators, Set.difference)
+            | and Python 3.10+ (type hints, pattern matching, dataclasses, protocols), with ANSI terminal rendering at 10 FPS.
+            |
+            strong  (Work in Progress)
+          .project-links
+            a.btn(href=`${githubUrl}/race-sim`, target="_blank") GitHub
+          .tech-stack
+            span.tag JavaScript
+            span.tag Python
+            span.tag Node.js
+            span.tag Async/Await
+            span.tag Strategy Pattern
+            span.tag Terminal UI
+            span.tag Generators
+            span.tag Type Safety
+
+        article.project-card
           h3.project-title Dino Park
           p.project-description
             | A dinosaur park management system built with pure functional programming principles.
