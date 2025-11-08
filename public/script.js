@@ -6,11 +6,22 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
+        // Get hCaptcha response token
+        const hcaptchaResponse = document.querySelector('[name="h-captcha-response"]');
+        const hcaptchaToken = hcaptchaResponse ? hcaptchaResponse.value : '';
+
+        // Validate hCaptcha
+        if (!hcaptchaToken) {
+            showMessage('Please complete the captcha verification', 'error');
+            return;
+        }
+
         // Get form data
         const formData = {
             name: document.getElementById('name').value.trim(),
             email: document.getElementById('email').value.trim(),
-            message: document.getElementById('message').value.trim()
+            message: document.getElementById('message').value.trim(),
+            'h-captcha-response': hcaptchaToken
         };
 
         // Validate form
@@ -40,12 +51,24 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.ok && data.success) {
                 showMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
                 form.reset();
+                // Reset hCaptcha widget
+                if (typeof hcaptcha !== 'undefined') {
+                    hcaptcha.reset();
+                }
             } else {
                 showMessage(data.message || 'Failed to send message. Please try again.', 'error');
+                // Reset hCaptcha on error
+                if (typeof hcaptcha !== 'undefined') {
+                    hcaptcha.reset();
+                }
             }
         } catch (error) {
             console.error('Error:', error);
             showMessage('An error occurred. Please try again later.', 'error');
+            // Reset hCaptcha on error
+            if (typeof hcaptcha !== 'undefined') {
+                hcaptcha.reset();
+            }
         } finally {
             // Re-enable submit button
             submitButton.disabled = false;

@@ -8,6 +8,7 @@ import { BlogController } from './controllers/blog.controller';
 import { MailService } from './services/mail.service';
 import { BlogService } from './services/blog.service';
 import { ConfigService } from './services/config.service';
+import { HcaptchaService } from './services/hcaptcha.service';
 
 @Module({
   imports: [
@@ -18,6 +19,6 @@ import { ConfigService } from './services/config.service';
     }),
   ],
   controllers: [AppController, PagesController, ContactController, BlogController],
-  providers: [MailService, BlogService, ConfigService],
+  providers: [MailService, BlogService, ConfigService, HcaptchaService],
 })
 export class AppModule {}

@@ -53,7 +53,8 @@ export class PagesController {
     return {
       title: 'Contact - JCH',
       page: 'contact',
-      currentPath: req.path
+      currentPath: req.path,
+      hcaptchaSiteKey: this.configService.getHcaptchaSiteKey()
     };
   }
 

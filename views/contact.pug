@@ -30,11 +30,15 @@ block content
           label(for="message") Message
           textarea#message(name="message", rows="5", required)
 
+        .form-group
+          .h-captcha(data-sitekey=hcaptchaSiteKey)
+
         button.submit-button(type="submit") Send Message
 
         #form-message.form-message
 
 block scripts
+  script(src="https://js.hcaptcha.com/1/api.js", async, defer)
   script(src="/script.js")
   script.
     // Initialize Lucide icons
