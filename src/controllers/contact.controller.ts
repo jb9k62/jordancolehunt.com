@@ -1,5 +1,5 @@
-import { Controller, Post, Body, HttpCode, HttpStatus, HttpException, Req } from '@nestjs/common';
-import { Request } from 'express';
+import { Controller, Post, Body, HttpCode, HttpStatus, HttpException, Req, Res } from '@nestjs/common';
+import { Request, Response } from 'express';
 import { MailService } from '../services/mail.service';
 import { HcaptchaService } from '../services/hcaptcha.service';
 
@@ -19,7 +19,7 @@ export class ContactController {
 
   @Post('contact')
   @HttpCode(HttpStatus.OK)
-  async sendContactForm(@Body() body: ContactDto, @Req() request: Request) {
+  async sendContactForm(@Body() body: ContactDto, @Req() request: Request, @Res() res: Response) {
     const { name, email, message, 'h-captcha-response': hcaptchaToken } = body;
 
     // Validation
@@ -41,12 +41,17 @@ export class ContactController {
 
     await this.hcaptchaService.verifyToken(hcaptchaToken, remoteIp);
 
+    // Set no-cache headers for API endpoints
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+
     try {
       await this.mailService.sendContactEmail(name, email, message);
-      return {
+      return res.json({
         success: true,
         message: 'Message sent successfully!'
-      };
+      });
     } catch (error) {
       console.error('Error sending email:', error);
       throw new HttpException(
