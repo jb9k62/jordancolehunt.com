@@ -4,7 +4,7 @@ import { ConfigService } from '../services/config.service';
 
 @Controller()
 export class PagesController {
-  constructor(private readonly configService: ConfigService) {}
+  constructor(private readonly configService: ConfigService) { }
 
   /**
    * Sets CDN-optimized cache headers for HTML pages
@@ -77,7 +77,7 @@ export class PagesController {
       title: 'CV - JCH',
       page: 'cv',
       currentPath: req.path,
-      cvPath: '/cv/resume.pdf'
+      cvPath: '/cv/resume-v2.pdf'
     });
   }
 }
