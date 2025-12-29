@@ -1,6 +1,6 @@
 [submodule "content"]
 	path = content
-	url = https://github.com/jb9k62/blog-content-private.git
+	url = git@github.com:jb9k62/blog-content-private.git
 [submodule "portfolio/dino-park"]
 	path = portfolio/dino-park
 	url = git@github.com:jb9k62/dino-park.git
