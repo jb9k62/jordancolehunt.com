@@ -242,7 +242,14 @@
 .skill-category h3 {
   font-size: 1.5rem;
   color: var(--cyan);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  opacity: 0.8;
 }
 
 .tech-list,
