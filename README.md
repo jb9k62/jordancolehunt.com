@@ -5,6 +5,7 @@ A modern personal website and blog built with **NestJS + TypeScript** backend, *
 ## Architecture Decision
 
 **Why TypeScript backend + Vanilla JS frontend?**
+
 - ✅ **NestJS is designed for TypeScript** - clean decorators, type safety, maintainable code
 - ✅ **Simple frontend doesn't need TypeScript** - vanilla JS keeps it fast and dependency-free
 - ✅ **Best of both worlds** - use the right tool for each job
@@ -12,14 +13,17 @@ A modern personal website and blog built with **NestJS + TypeScript** backend, *
 ## Design Features
 
 ### Color Palette (Three Colors)
+
 - **Deep Navy** (`#0a192f`) - Primary background
 - **Electric Cyan** (`#64ffda`) - Accent color
 - **Off-white** (`#ccd6f6`) - Text color
 
 ### Typography
+
 - **Space Grotesk** - Modern geometric sans-serif font
 
 ### Design Principles
+
 - ✨ Minimal, clean layout
 - 🎯 Beautiful hover effects on all interactive elements
 - 📱 Fully responsive design
@@ -28,6 +32,7 @@ A modern personal website and blog built with **NestJS + TypeScript** backend, *
 ## Tech Stack
 
 ### Backend
+
 - **NestJS** (TypeScript)
 - **Express** (via NestJS)
 - **Pug** - Template engine for server-side rendering
@@ -38,6 +43,7 @@ A modern personal website and blog built with **NestJS + TypeScript** backend, *
 - **isomorphic-dompurify** - XSS sanitisation
 
 ### Frontend
+
 - **Pug Templates** - Server-side rendered views
 - **CSS3** - Custom styling with CSS variables, organised into modules
 - **Vanilla JavaScript** - No frameworks, no build step
@@ -100,6 +106,7 @@ jordancolehunt.com/
 ### Installation
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
@@ -107,6 +114,7 @@ jordancolehunt.com/
 2. **Configure environment variables:**
 
    Create or update `.env` with your Mailgun credentials:
+
    ```env
    MAILGUN_API_KEY=your_api_key_here
    MAILGUN_DOMAIN=your_domain_here
@@ -116,17 +124,20 @@ jordancolehunt.com/
 3. **Start the server:**
 
    **Development mode** (with hot-reload):
+
    ```bash
    npm run dev
    ```
 
    **Production mode** (requires build first):
+
    ```bash
    npm run build
    npm start
    ```
 
 4. **Visit the site:**
+
    ```
    http://localhost:3000
    ```
@@ -143,6 +154,7 @@ jordancolehunt.com/
 ## Routes
 
 ### Page Routes (Server-Rendered)
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `GET` | `/` | Home page |
@@ -154,6 +166,7 @@ jordancolehunt.com/
 | `GET` | `/blog/:slug` | Individual blog post |
 
 ### API Endpoints
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `GET` | `/health` | Health check endpoint |
@@ -162,6 +175,7 @@ jordancolehunt.com/
 ### Contact Form API
 
 **Request:**
+
 ```json
 POST /api/contact
 Content-Type: application/json
@@ -174,6 +188,7 @@ Content-Type: application/json
 ```
 
 **Response (Success):**
+
 ```json
 {
   "success": true,
@@ -182,6 +197,7 @@ Content-Type: application/json
 ```
 
 **Response (Error):**
+
 ```json
 {
   "statusCode": 400,
@@ -192,6 +208,7 @@ Content-Type: application/json
 ## Features
 
 ### ✨ Backend Features
+
 - **Server-Side Rendering** - Pug templates for dynamic page generation
 - **Blog System** - Markdown-based blog with frontmatter support
 - **Type Safety** - NestJS controllers and services with TypeScript
@@ -202,6 +219,7 @@ Content-Type: application/json
 - **Input Validation** - Email validation and required field checks
 
 ### 🎨 Frontend Features
+
 - **Multiple Pages** - Home, Skills, Projects, About, Contact, Blog
 - **View Transitions API** - Smooth cross-document transitions (Chrome 126+, Safari 18.2+)
 - **GSAP Animations** - Professional page transitions and effects
@@ -215,6 +233,7 @@ Content-Type: application/json
 ### Update Personal Information
 
 Edit Pug templates in `views/`:
+
 - `index.pug` - Name, title, and hero section
 - `about.pug` - About section text
 - `skills.pug` - Technologies and skills
@@ -224,6 +243,7 @@ Edit Pug templates in `views/`:
 ### Change Color Scheme
 
 Modify CSS variables in `public/styles/main.css`:
+
 ```css
 :root {
     --navy: #0a192f;
@@ -235,6 +255,7 @@ Modify CSS variables in `public/styles/main.css`:
 ### Update Email Recipient
 
 Edit `src/services/mail.service.ts`:
+
 ```typescript
 to: 'your-email@example.com',
 ```
@@ -242,6 +263,7 @@ to: 'your-email@example.com',
 ### Add Blog Posts
 
 Create Markdown files in `content/blog/` with YAML frontmatter:
+
 ```markdown
 ---
 title: Your Post Title
@@ -267,6 +289,7 @@ npm run build
 ### Environment Variables
 
 Set these on your hosting platform:
+
 - `MAILGUN_API_KEY`
 - `MAILGUN_DOMAIN`
 - `PORT` (optional, defaults to 3000)
@@ -304,6 +327,7 @@ The compiled code in `dist/` and static files in `public/` will be served.
 ## Blog System
 
 The blog system supports:
+
 - **Markdown with GFM**: GitHub Flavored Markdown for familiar syntax
 - **Frontmatter**: YAML metadata for title, date, tags, and more
 - **Syntax Highlighting**: Automatic code block highlighting with highlight.js
@@ -313,5 +337,9 @@ The blog system supports:
 - **SEO-Friendly**: Server-rendered HTML with metadata
 
 ---
+
+# Zoho scope
+
+ZohoMail.messages.CREATE,ZohoMail.accounts.READ
 
 Built with ❤️ using NestJS, TypeScript, Pug, and vanilla web technologies.
