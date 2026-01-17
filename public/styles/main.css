@@ -3,13 +3,21 @@
    ============================================================================= */
 
 :root {
-    /* Color Palette */
-    --navy: #0a192f;
-    --cyan: #64ffda;
-    --off-white: #ccd6f6;
-    --navy-light: #112240;
-    --navy-lighter: #1d3a5f;
-    --text-muted: #8892b0;
+    /* Color Palette - Sunset Shore */
+    --twilight: #1a2f3d;
+    --sand: #e8d4b8;
+    --cream: #f5ebe0;
+    --twilight-light: #264352;
+    --twilight-lighter: #345869;
+    --driftwood: #9aa8b5;
+
+    /* Legacy aliases for compatibility */
+    --navy: var(--twilight);
+    --cyan: var(--sand);
+    --off-white: var(--cream);
+    --navy-light: var(--twilight-light);
+    --navy-lighter: var(--twilight-lighter);
+    --text-muted: var(--driftwood);
 
     /* Typography */
     --font-main: 'Space Grotesk', sans-serif;
