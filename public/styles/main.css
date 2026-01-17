@@ -46,6 +46,13 @@ body {
     color: var(--off-white);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 /* =============================================================================
