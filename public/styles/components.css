@@ -318,6 +318,12 @@
 
 .project-description {
     color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.project-description.tech-details {
+    font-size: 0.9rem;
+    opacity: 0.85;
     margin-bottom: 1.5rem;
 }
 
