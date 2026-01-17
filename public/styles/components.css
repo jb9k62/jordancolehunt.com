@@ -877,6 +877,10 @@
 }
 
 @media (max-width: 480px) {
+  .logo {
+    display: none;
+  }
+
   .hero-name {
     font-size: 2rem;
   }

@@ -55,9 +55,10 @@ function cleanupAnimations() {
 // HOME PAGE ANIMATIONS
 // ============================================================================
 function initHomeAnimations() {
-  // JCH Logo Staggered Letter Reveal
+  // JCH Logo Staggered Letter Reveal (skip on mobile where logo is hidden)
+  const isMobile = window.matchMedia('(max-width: 480px)').matches;
   const jchLogo = document.querySelector('.logo');
-  if (jchLogo && !jchLogo.hasAttribute('data-animated')) {
+  if (jchLogo && !jchLogo.hasAttribute('data-animated') && !isMobile) {
     // Split text into individual characters
     const text = jchLogo.textContent.trim();
     const chars = text.split('');
