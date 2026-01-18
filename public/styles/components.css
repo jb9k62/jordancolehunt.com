@@ -830,6 +830,10 @@
    ============================================================================= */
 
 @media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+
   .hero-name {
     font-size: 2.5rem;
   }
@@ -884,10 +888,6 @@
 }
 
 @media (max-width: 480px) {
-  .logo {
-    display: none;
-  }
-
   .hero-name {
     font-size: 2rem;
   }
