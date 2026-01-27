@@ -13,3 +13,6 @@
 [submodule "portfolio/race-sim"]
 	path = portfolio/race-sim
 	url = git@github.com:jb9k62/race-sim.git
+[submodule "portfolio/sql-training"]
+	path = portfolio/sql-training
+	url = git@github.com:jb9k62/sql-training.git
