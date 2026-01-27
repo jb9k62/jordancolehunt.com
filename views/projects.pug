@@ -71,3 +71,25 @@ block content
             span.tag JavaScript
             span.tag Functional Programming
             span.tag Immutable Data
+
+        article.project-card
+          h3.project-title SQL Training Environment
+          p.project-description
+            | A hands-on SQL training platform built for senior engineering interview prep. Work through progressive
+            | exercises—from basic SELECT statements to window functions and CTEs—against real PostgreSQL and SQLite
+            | databases. No ORM hand-holding here, just raw SQL and immediate feedback.
+            strong  (Work in Progress)
+          p.project-description.tech-details
+            | Features a unified database abstraction layer that transparently handles PostgreSQL 9.6, PostgreSQL 13,
+            | and SQLite through a single interface. Each exercise runs in isolated schemas to prevent data conflicts,
+            | with custom Vitest assertions for SQL-specific validation (row counts, column checks, ordering, uniqueness).
+            | Docker Compose orchestrates the multi-version PostgreSQL environment.
+          .project-links
+            a.btn(href=`${githubUrl}/sql-training`, target="_blank") GitHub
+          .tech-stack
+            span.tag PostgreSQL
+            span.tag SQLite
+            span.tag Vitest
+            span.tag Docker
+            span.tag Node.js
+            span.tag Raw SQL
