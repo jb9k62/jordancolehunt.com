@@ -11,11 +11,13 @@ block content
           p.project-description
             | You're looking at it! This is my digital home—a place to share my work, write about what I'm learning,
             | and make it easy for people to get in touch. It's fast, clean, and feels smooth to navigate.
-          p.project-description.tech-details
-            | Built with a NestJS backend serving server-rendered Pug templates for SEO benefits. The blog system
-            | parses Markdown files with syntax highlighting via highlight.js. Page transitions use the View Transitions API
-            | with GSAP animations, while the contact form integrates Zoho Mail OAuth2 with hCaptcha spam protection
-            | and XSS sanitisation.
+          details.tech-details
+            summary Technical Details
+            p
+              | Built with a NestJS backend serving server-rendered Pug templates for SEO benefits. The blog system
+              | parses Markdown files with syntax highlighting via highlight.js. Page transitions use the View Transitions API
+              | with GSAP animations, while the contact form integrates Zoho Mail OAuth2 with hCaptcha spam protection
+              | and XSS sanitisation.
           .project-links
             a.btn(href=`${githubUrl}/jordancolehunt.com`, target="_blank") GitHub
           .tech-stack
@@ -35,11 +37,13 @@ block content
             | and cross the finish line first. It's built twice—once in JavaScript, once in Python—as a way to explore
             | how modern features in each language compare when solving the same problem.
             strong  (Work in Progress)
-          p.project-description.tech-details
-            | Demonstrates feature parity between ES2020+ JavaScript (private fields, generators, Set.difference)
-            | and Python 3.10+ (type hints, pattern matching, dataclasses, protocols). Uses the strategy pattern
-            | for AI decision-making with full state serialisation, making it ready for LLM or vision model integration.
-            | Async/await handles concurrent updates with ANSI terminal rendering at 10 FPS.
+          details.tech-details
+            summary Technical Details
+            p
+              | Demonstrates feature parity between ES2020+ JavaScript (private fields, generators, Set.difference)
+              | and Python 3.10+ (type hints, pattern matching, dataclasses, protocols). Uses the strategy pattern
+              | for AI decision-making with full state serialisation, making it ready for LLM or vision model integration.
+              | Async/await handles concurrent updates with ANSI terminal rendering at 10 FPS.
           .project-links
             a.btn(href=`${githubUrl}/race-sim`, target="_blank") GitHub
           .tech-stack
@@ -58,10 +62,12 @@ block content
             | Ever wanted to run a dinosaur park without the risk of being eaten? This simulation lets you manage
             | a grid of enclosures, keeping track of feeding schedules, dinosaur movements, and maintenance alerts.
             | Real-time events keep things unpredictable—just like the real thing, minus the velociraptors.
-          p.project-description.tech-details
-            | Built with pure functional programming principles in React. Processes real-time events from an external API
-            | to manage a 26×16 park grid using immutable data structures throughout. Features a three-panel UI
-            | with safety indicators and comprehensive Vitest coverage demonstrating clean functional architecture.
+          details.tech-details
+            summary Technical Details
+            p
+              | Built with pure functional programming principles in React. Processes real-time events from an external API
+              | to manage a 26×16 park grid using immutable data structures throughout. Features a three-panel UI
+              | with safety indicators and comprehensive Vitest coverage demonstrating clean functional architecture.
           .project-links
             a.btn(href=`${githubUrl}/dino-park`, target="_blank") GitHub
           .tech-stack
@@ -79,11 +85,13 @@ block content
             | exercises—from basic SELECT statements to window functions and CTEs—against real PostgreSQL and SQLite
             | databases. No ORM hand-holding here, just raw SQL and immediate feedback.
             strong  (Work in Progress)
-          p.project-description.tech-details
-            | Features a unified database abstraction layer that transparently handles PostgreSQL 9.6, PostgreSQL 13,
-            | and SQLite through a single interface. Each exercise runs in isolated schemas to prevent data conflicts,
-            | with custom Vitest assertions for SQL-specific validation (row counts, column checks, ordering, uniqueness).
-            | Docker Compose orchestrates the multi-version PostgreSQL environment.
+          details.tech-details
+            summary Technical Details
+            p
+              | Features a unified database abstraction layer that transparently handles PostgreSQL 9.6, PostgreSQL 13,
+              | and SQLite through a single interface. Each exercise runs in isolated schemas to prevent data conflicts,
+              | with custom Vitest assertions for SQL-specific validation (row counts, column checks, ordering, uniqueness).
+              | Docker Compose orchestrates the multi-version PostgreSQL environment.
           .project-links
             a.btn(href=`${githubUrl}/sql-training`, target="_blank") GitHub
           .tech-stack
