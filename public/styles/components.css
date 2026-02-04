@@ -366,10 +366,12 @@
 }
 
 .blog-card {
+  position: relative;
   background-color: var(--navy-light);
   padding: 2rem;
   border-radius: 8px;
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .blog-card:hover {
@@ -384,7 +386,14 @@
   transition: var(--transition);
 }
 
-.blog-card h2 a:hover {
+.blog-card h2 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.blog-card:hover h2 a {
   color: var(--off-white);
 }
 
