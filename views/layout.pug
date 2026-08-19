@@ -33,9 +33,18 @@ html(lang="en")
     include mixins/footer
     +footer()
 
+    //- Image lightbox modal (outside <main>, so it isn't trapped by
+    //- main's view-transition-name stacking context - see components.css)
+    #image-modal.image-modal(role="dialog", aria-modal="true", aria-hidden="true")
+      .image-modal-content
+        button.image-modal-close(type="button", aria-label="Close image") ×
+        img#image-modal-img(src="", alt="")
+        p#image-modal-caption.image-modal-caption
+
     //- Scripts
     script(src="/js/dots-background.js")
     script(src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js")
     script(src="/js/transitions.js")
     script(src="/js/app.js", type="module")
+    script(src="/js/image-modal.js")
     block scripts
