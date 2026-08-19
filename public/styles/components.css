@@ -317,6 +317,125 @@
   margin-bottom: 1rem;
 }
 
+/* Clickable diagram thumbnail -> full-size lightbox */
+.project-image-wrapper {
+  position: relative;
+  cursor: zoom-in;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background-color: var(--navy);
+}
+
+.project-image-wrapper .project-image {
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 0;
+  transition: transform 0.3s ease;
+}
+
+.project-image-wrapper:hover .project-image {
+  transform: scale(1.04);
+}
+
+.project-image-badge {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  background-color: rgba(10, 16, 22, 0.8);
+  color: var(--cyan);
+  font-size: 0.75rem;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.project-image-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.project-image-wrapper:hover .project-image-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image lightbox modal */
+.image-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background-color: rgba(8, 14, 19, 0.94);
+}
+
+.image-modal.is-open {
+  display: flex;
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-modal-content img {
+  max-width: 90vw;
+  max-height: 78vh;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.image-modal-caption {
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: -3rem;
+  right: -0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--cyan);
+  background: transparent;
+  color: var(--cyan);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.image-modal-close:hover {
+  background-color: var(--cyan);
+  color: var(--navy);
+}
+
+@media (max-width: 480px) {
+  .image-modal-close {
+    top: -2.75rem;
+    right: 0;
+  }
+}
+
 .project-title {
   font-size: 1.5rem;
   color: var(--cyan);
