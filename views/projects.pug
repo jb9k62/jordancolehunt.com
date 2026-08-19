@@ -101,3 +101,128 @@ block content
             span.tag Docker
             span.tag Node.js
             span.tag Raw SQL
+
+      h2.section-title Professional & Client Work
+      p.project-description
+        | Software I've built and shipped for employers and clients. These repos are private, so
+        | there's no GitHub link below — just what each project does, how it's built, and the
+        | problem it solved.
+
+      .projects-grid
+        article.project-card
+          h3.project-title BoyzGroup Odoo AI Assistant
+          p.project-description
+            | An in-Odoo AI chat assistant that lets non-technical staff ask natural-language questions
+            | about live business data—sales, inventory, CRM—and get answers back, including charts,
+            | without writing a query.
+          details.tech-details
+            summary Technical Details
+            p
+              | Built as a standard Odoo 17 addon. A question is saved as 'pending' so the request
+              | returns fast, then an ir.cron worker runs the actual Claude tool-use loop and pushes
+              | the answer back over Odoo's bus channel—no polling. The agent only gets five read-only
+              | ORM tools, runs with the requesting user's own permissions, and per-company model
+              | blacklists keep it out of data it shouldn't see.
+          .tech-stack
+            span.tag Python
+            span.tag Odoo
+            span.tag Anthropic API
+            span.tag PostgreSQL
+            span.tag OWL
+
+        article.project-card
+          h3.project-title BoyzGroup Odoo Integration Server
+          p.project-description
+            | A webhook-aggregator service bridging Odoo CRM with the outside world: website lead
+            | forms, WhatsApp automation, and a phone system, all processed asynchronously.
+          details.tech-details
+            summary Technical Details
+            p
+              | A Fastify server hands every inbound webhook straight to a Redis-backed BullMQ queue
+              | rather than processing it inline, so one slow or failing channel can't take the others
+              | down. A worker talks to Odoo over JSON-RPC and sends outbound WhatsApp messages through
+              | a client interface with a swappable mock implementation, making the whole flow testable
+              | without touching a live connection. Deployed on Fly.io.
+          .tech-stack
+            span.tag TypeScript
+            span.tag Fastify
+            span.tag BullMQ
+            span.tag Redis
+            span.tag Prisma
+            span.tag Fly.io
+
+        article.project-card
+          h3.project-title Acclr8 Pitch Deck Generator
+          p.project-description
+            | An agent-driven pitch deck build system—Typst source, a shared brand/component template
+            | library, and Taskfile-driven rendering—designed to be authored end-to-end by a coding
+            | agent rather than a human in a slide editor.
+          details.tech-details
+            summary Technical Details
+            p
+              | Decks are Typst source files importing shared brand/component templates, keeping content
+              | and presentation separate. A Taskfile drives the build: one task compiles to PDF, another
+              | renders every slide to PNG specifically so a coding agent can visually review its own
+              | output and fix layout issues itself.
+          .tech-stack
+            span.tag Typst
+            span.tag Taskfile
+            span.tag Claude Code
+
+        article.project-card
+          h3.project-title ProForma Generator
+          p.project-description
+            | A service that generates branded, VAT-correct pro-forma invoice PDFs by combining live
+            | courier shipping quotes and customer review data into a single rendered document.
+          details.tech-details
+            summary Technical Details
+            p
+              | Next.js API routes proxy a courier rate API and a reviews API, while a pure business-logic
+              | module computes VAT-inclusive/exclusive totals using arbitrary-precision decimal math to
+              | avoid floating-point rounding errors in financial figures. The assembled data renders
+              | through a React component tree into the final PDF.
+          .tech-stack
+            span.tag TypeScript
+            span.tag Next.js
+            span.tag React
+            span.tag react-pdf
+            span.tag Zod
+
+        article.project-card
+          h3.project-title PartsPal
+          p.project-description
+            | A South African auto-parts marketplace: customers submit a part request with a photo and
+            | vehicle details, suppliers respond with competing quotes, and the platform manages the
+            | whole request-to-transaction lifecycle.
+          details.tech-details
+            summary Technical Details
+            p
+              | A module-per-domain NestJS app, server-rendered with Pug and small vanilla-JS Web
+              | Components. Photo uploads are resized to multiple sizes with a blur placeholder generated
+              | in parallel, and can be run through a GPT-4 Vision queue job to help identify the part
+              | before a request is even fully filled in.
+          .tech-stack
+            span.tag TypeScript
+            span.tag NestJS
+            span.tag Prisma
+            span.tag BullMQ
+            span.tag GPT-4 Vision
+
+        article.project-card
+          h3.project-title Call Center Node Web Server
+          p.project-description
+            | A NestJS migration of legacy classic-ASP call-center agent tooling—campaign management,
+            | lead distribution, dialer integration—moved to a modern stack module by module rather than
+            | as a big-bang rewrite.
+          details.tech-details
+            summary Technical Details
+            p
+              | Each feature module follows a consistent controller/service/repository/guard/DTO pattern,
+              | exposing both a JSON API and server-rendered views from the same services. A dedicated
+              | mocked-services module lets the app run locally without a live database connection,
+              | which kept the incremental migration workable day to day.
+          .tech-stack
+            span.tag TypeScript
+            span.tag NestJS
+            span.tag MSSQL
+            span.tag Pug
