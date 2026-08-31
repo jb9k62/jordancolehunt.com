@@ -1,0 +1,6 @@
+{
+  // Pi equivalent of the old `.claude/settings.local.json` WebFetch(domain:fly.io) grant.
+  // In pi, web access (fetching pages, e.g. Fly.io docs) is provided by the
+  // `pi-web-access` extension rather than a per-domain permission allowlist.
+  "packages": ["pi-web-access"]
+}
