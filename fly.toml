@@ -1,16 +1,15 @@
-# fly.toml app configuration file generated for jordancolehunt-com on 2025-11-03T14:20:43+02:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
 app = 'jordancolehunt-com'
 primary_region = 'jnb'
 
 [build]
+  # Build-time values baked into static HTML (all public, never secrets).
+  # The hCaptcha SITE key is public (embedded in client HTML); the matching
+  # HCAPTCHA_SECRET lives as a Fly secret and is used server-side at runtime.
+  args = { GITHUB_USERNAME = 'jb9k62', HCAPTCHA_SITE_KEY = 'f102d182-a8f2-4320-88d2-22062eea0ace', BASE_URL = 'https://jordancolehunt.com' }
 
 [env]
   NODE_ENV = 'production'
-  PORT = '8080'
+  PORTINT = '3001'
 
 [http_service]
   internal_port = 8080
@@ -19,6 +18,14 @@ primary_region = 'jnb'
   auto_start_machines = true
   min_machines_running = 0
   max_machines_running = 1
+  # Health check runs through Nginx -> Fastify /healthz so the machine is only
+  # considered healthy once both processes are up.
+  [[http_service.checks]]
+    interval = '15s'
+    timeout = '5s'
+    grace_period = '20s'
+    method = 'GET'
+    path = '/healthz'
 
 [[vm]]
   size = 'shared-cpu-1x'

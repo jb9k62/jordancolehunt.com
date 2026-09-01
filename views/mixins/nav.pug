@@ -1,12 +1,13 @@
 mixin nav(currentPath)
-  nav.nav
-    .container
-      a.logo(href="/") JCH
-      ul.nav-links
-        li: a(href="/", class=(currentPath === '/' ? 'active' : '')) Home
-        li: a(href="/skills", class=(currentPath === '/skills' ? 'active' : '')) Skills
-        li: a(href="/projects", class=(currentPath === '/projects' ? 'active' : '')) Projects
-        li: a(href="/about", class=(currentPath === '/about' ? 'active' : '')) About
-        li: a(href="/blog", class=(currentPath && currentPath.startsWith('/blog') ? 'active' : '')) Blog
-        li: a(href="/cv", class=(currentPath === '/cv' ? 'active' : '')) CV
-        li: a(href="/contact", class=(currentPath === '/contact' ? 'active' : '')) Contact
+  header.site-header
+    a.brand(href="/") JCH
+    nav.menu(aria-label="Primary")
+      a.menu-link(href="/", class=(currentPath === '/' ? 'active' : '')) Home
+      a.menu-link(href="/skills", class=(currentPath === '/skills' ? 'active' : '')) Skills
+      a.menu-link(href="/projects", class=(currentPath === '/projects' ? 'active' : '')) Projects
+      a.menu-link(href="/about", class=(currentPath === '/about' ? 'active' : '')) About
+      a.menu-link(href="/blog", class=(currentPath && currentPath.startsWith('/blog') ? 'active' : '')) Blog
+      a.menu-link(href="/cv", class=(currentPath === '/cv' ? 'active' : '')) CV
+      a.menu-link(href="/contact", class=(currentPath === '/contact' ? 'active' : '')) Contact
+      button.theme-toggle(type="button", id="theme-toggle", aria-label="Toggle light/dark theme")
+        span.theme-toggle-label

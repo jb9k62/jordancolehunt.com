@@ -6,6 +6,8 @@ yarn-error.log*
 
 # Build outputs
 dist
+dist-site
+dist-server
 *.tsbuildinfo
 
 # Environment files (secrets should be set via fly secrets)
@@ -32,10 +34,18 @@ Thumbs.db
 # Testing
 coverage
 .nyc_output
+tests
+playwright.config.ts
+.playwright-mcp
 
-# Documentation (not needed in container)
+# Tooling / docs (not needed in the container)
+.pi
+.platform
 README.md
 CLAUDE.md
+TODO.md
+PLAN.md
+DESIGN_SPEC.md
 *.md
 !content/**/*.md
 

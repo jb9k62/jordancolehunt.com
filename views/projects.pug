@@ -1,33 +1,31 @@
 extends layout
 
 block content
-  section.projects
-    .container
-      h1.section-title Professional & Client Work
-      p.project-description
-        | Software I've built and shipped for clients. The repos are private, so
-        | no GitHub link here - just what each project does, how it's built, and the problem it
-        | solved.
+  section.page
+    .content-surface.wide
+      h1.section-title Professional &amp; Client Work
+      p.page-intro
+        | Software I&rsquo;ve built and shipped for clients. The repos are private, so no
+        | GitHub link here &mdash; just what each project does, how it&rsquo;s built, and the
+        | problem it solved.
 
       .projects-grid
         article.project-card
           h3.project-title Odoo AI Assistant
-          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/odoo-ai-assistant-architecture.png", data-caption="Odoo AI Assistant - architecture")
+          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/odoo-ai-assistant-architecture.png", data-caption="Odoo AI Assistant — architecture")
             img.project-image(src="/images/portfolio/odoo-ai-assistant-architecture.png", alt="Odoo AI Assistant architecture diagram", loading="lazy")
-            span.project-image-badge
-              i(data-lucide="zoom-in")
-              | View full size
+            span.project-image-badge View full size
           p.project-description
             | An AI chat assistant inside Odoo. Ask plain-English questions about sales, stock,
-            | or CRM data and get answers back - charts included - without writing a query.
+            | or CRM data and get answers back &mdash; charts included &mdash; without writing a query.
           details.tech-details
             summary Technical Details
             p
-              | Built as an Odoo 17 addon. A question gets saved as 'pending' so the request
+              | Built as an Odoo 17 addon. A question gets saved as &lsquo;pending&rsquo; so the request
               | returns fast, then a cron worker runs the actual Claude tool-use loop and pushes
-              | the answer back over Odoo's bus channel - no polling. The agent only gets five
-              | read-only ORM tools, runs under the requesting user's own permissions, and
-              | per-company blacklists keep it off data it shouldn't touch.
+              | the answer back over Odoo&rsquo;s bus channel &mdash; no polling. The agent only gets five
+              | read-only ORM tools, runs under the requesting user&rsquo;s own permissions, and
+              | per-company blacklists keep it off data it shouldn&rsquo;t touch.
           .tech-stack
             span.tag Python
             span.tag Odoo
@@ -37,21 +35,19 @@ block content
 
         article.project-card
           h3.project-title Odoo Integration Server
-          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/odoo-integration-server-architecture.png", data-caption="Odoo Integration Server - architecture")
+          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/odoo-integration-server-architecture.png", data-caption="Odoo Integration Server — architecture")
             img.project-image(src="/images/portfolio/odoo-integration-server-architecture.png", alt="Odoo Integration Server architecture diagram", loading="lazy")
-            span.project-image-badge
-              i(data-lucide="zoom-in")
-              | View full size
+            span.project-image-badge View full size
           p.project-description
-            | A webhook aggregator that bridges Odoo CRM with the outside world - website leads,
-            | WhatsApp automation, a phone system - all handled asynchronously.
+            | A webhook aggregator that bridges Odoo CRM with the outside world &mdash; website leads,
+            | WhatsApp automation, a phone system &mdash; all handled asynchronously.
           details.tech-details
             summary Technical Details
             p
               | A Fastify server queues every inbound webhook through Redis/BullMQ instead of
-              | handling it inline, so one slow channel can't take the others down. A worker
+              | handling it inline, so one slow channel can&rsquo;t take the others down. A worker
               | talks to Odoo over JSON-RPC and sends WhatsApp messages through a swappable
-              | client interface, so it's testable without touching a live connection. Runs on
+              | client interface, so it&rsquo;s testable without touching a live connection. Runs on
               | Fly.io.
           .tech-stack
             span.tag TypeScript
@@ -63,14 +59,12 @@ block content
 
         article.project-card
           h3.project-title Pitch Deck Generator
-          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/pitch-deck-generator-architecture.png", data-caption="Pitch Deck Generator - architecture")
+          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/pitch-deck-generator-architecture.png", data-caption="Pitch Deck Generator — architecture")
             img.project-image(src="/images/portfolio/pitch-deck-generator-architecture.png", alt="Pitch Deck Generator architecture diagram", loading="lazy")
-            span.project-image-badge
-              i(data-lucide="zoom-in")
-              | View full size
+            span.project-image-badge View full size
           p.project-description
-            | An agent-driven pitch deck builder - Typst source, shared brand templates, Taskfile
-            | rendering - made to run end-to-end by a coding agent, not a human in a slide editor.
+            | An agent-driven pitch deck builder &mdash; Typst source, shared brand templates, Taskfile
+            | rendering &mdash; made to run end-to-end by a coding agent, not a human in a slide editor.
           details.tech-details
             summary Technical Details
             p
@@ -85,11 +79,9 @@ block content
 
         article.project-card
           h3.project-title ProForma Generator
-          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/proforma-generator-architecture.png", data-caption="ProForma Generator - architecture")
+          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/proforma-generator-architecture.png", data-caption="ProForma Generator — architecture")
             img.project-image(src="/images/portfolio/proforma-generator-architecture.png", alt="ProForma Generator architecture diagram", loading="lazy")
-            span.project-image-badge
-              i(data-lucide="zoom-in")
-              | View full size
+            span.project-image-badge View full size
           p.project-description
             | Generates branded, VAT-correct pro-forma invoice PDFs, combining live courier
             | quotes and customer reviews into one document.
@@ -109,11 +101,9 @@ block content
 
         article.project-card
           h3.project-title PartsPal
-          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/partspal-architecture.png", data-caption="PartsPal - architecture")
+          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/partspal-architecture.png", data-caption="PartsPal — architecture")
             img.project-image(src="/images/portfolio/partspal-architecture.png", alt="PartsPal architecture diagram", loading="lazy")
-            span.project-image-badge
-              i(data-lucide="zoom-in")
-              | View full size
+            span.project-image-badge View full size
           p.project-description
             | A South African auto-parts marketplace. Customers submit a part request with a
             | photo, suppliers send back competing quotes.
@@ -123,7 +113,7 @@ block content
               | A module-per-domain NestJS app, server-rendered with Pug and small vanilla-JS Web
               | Components. Photo uploads get resized to multiple sizes with a blur placeholder,
               | and can run through a GPT-4 Vision job to help identify the part before the
-              | request's even finished.
+              | request&rsquo;s even finished.
           .tech-stack
             span.tag TypeScript
             span.tag NestJS
@@ -133,14 +123,12 @@ block content
 
         article.project-card
           h3.project-title Call Center Node Web Server
-          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/italk-web-server-architecture.png", data-caption="Call Center Node Web Server - architecture")
+          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/italk-web-server-architecture.png", data-caption="Call Center Node Web Server — architecture")
             img.project-image(src="/images/portfolio/italk-web-server-architecture.png", alt="Call Center Node Web Server architecture diagram", loading="lazy")
-            span.project-image-badge
-              i(data-lucide="zoom-in")
-              | View full size
+            span.project-image-badge View full size
           p.project-description
-            | A NestJS rebuild of legacy classic-ASP call-center tooling - campaign management,
-            | lead distribution, dialer integration - migrated module by module instead of a
+            | A NestJS rebuild of legacy classic-ASP call-center tooling &mdash; campaign management,
+            | lead distribution, dialer integration &mdash; migrated module by module instead of a
             | big-bang rewrite.
           details.tech-details
             summary Technical Details
@@ -155,49 +143,46 @@ block content
             span.tag MSSQL
             span.tag Pug
 
-      h2.section-title Projects
+      h2.section-title.section-title--pad-top Side Projects
 
       .projects-grid
         article.project-card
           h3.project-title Personal Website
           p.project-description
-            | You're looking at it! This is my digital home—a place to share my work, write about what I'm learning,
-            | and make it easy for people to get in touch. It's fast, clean, and feels smooth to navigate.
+            | You&rsquo;re looking at it! A static site served by Nginx with a tiny Fastify contact
+            | endpoint, self-hosted fonts, and a no-flash dark/light theme.
           details.tech-details
             summary Technical Details
             p
-              | Built with a NestJS backend serving server-rendered Pug templates for SEO benefits. The blog system
-              | parses Markdown files with syntax highlighting via highlight.js. Page transitions use the View Transitions API
-              | with GSAP animations, while the contact form integrates Zoho Mail OAuth2 with hCaptcha spam protection
-              | and XSS sanitisation.
+              | Pug templates rendered at build time into static HTML. Markdown blog posts with
+              | syntax highlighting. Zoho Mail OAuth2 + hCaptcha spam protection behind the
+              | contact form. Fully static &mdash; no runtime for pages.
           .project-links
-            a.btn(href=`${githubUrl}/jordancolehunt.com`, target="_blank") GitHub
+            a.btn(href=`${githubUrl}/jordancolehunt.com`, target="_blank", rel="noopener noreferrer") GitHub
           .tech-stack
-            span.tag NestJS
             span.tag TypeScript
+            span.tag Nginx
+            span.tag Fastify
             span.tag Pug
             span.tag Vanilla JS
             span.tag Markdown
             span.tag Zoho Mail
-            span.tag GSAP
-            span.tag highlight.js
 
         article.project-card
           h3.project-title Lane Racer
           p.project-description
-            | A retro-style racing game that runs right in your terminal. Four AI drivers compete to dodge obstacles
-            | and cross the finish line first. It's built twice—once in JavaScript, once in Python—as a way to explore
-            | how modern features in each language compare when solving the same problem.
+            | A retro-style racing game that runs right in your terminal. Four AI drivers compete
+            | to dodge obstacles and cross the finish line first. Built twice &mdash; once in
+            | JavaScript, once in Python.
             strong  (Work in Progress)
           details.tech-details
             summary Technical Details
             p
-              | Demonstrates feature parity between ES2020+ JavaScript (private fields, generators, Set.difference)
-              | and Python 3.10+ (type hints, pattern matching, dataclasses, protocols). Uses the strategy pattern
-              | for AI decision-making with full state serialisation, making it ready for LLM or vision model integration.
-              | Async/await handles concurrent updates with ANSI terminal rendering at 10 FPS.
+              | Demonstrates feature parity between ES2020+ JavaScript (private fields, generators,
+              | Set.difference) and Python 3.10+ (type hints, pattern matching, dataclasses,
+              | protocols). Strategy pattern for AI decision-making with full state serialisation.
           .project-links
-            a.btn(href=`${githubUrl}/race-sim`, target="_blank") GitHub
+            a.btn(href=`${githubUrl}/race-sim`, target="_blank", rel="noopener noreferrer") GitHub
           .tech-stack
             span.tag JavaScript
             span.tag Python
@@ -205,55 +190,42 @@ block content
             span.tag Async/Await
             span.tag Strategy Pattern
             span.tag Terminal UI
-            span.tag Generators
-            span.tag Type Safety
 
         article.project-card
           h3.project-title Dino Park
           p.project-description
-            | Ever wanted to run a dinosaur park without the risk of being eaten? This simulation lets you manage
-            | a grid of enclosures, keeping track of feeding schedules, dinosaur movements, and maintenance alerts.
-            | Real-time events keep things unpredictable—just like the real thing, minus the velociraptors.
+            | Ever wanted to run a dinosaur park without the risk of being eaten? Manage a grid
+            | of enclosures, tracking feeding schedules, movements, and maintenance alerts.
           details.tech-details
             summary Technical Details
             p
-              | Built with pure functional programming principles in React. Processes real-time events from an external API
-              | to manage a 26×16 park grid using immutable data structures throughout. Features a three-panel UI
-              | with safety indicators and comprehensive Vitest coverage demonstrating clean functional architecture.
+              | Built with pure functional programming principles in React. Processes real-time
+              | events to manage a 26&times;16 park grid using immutable data structures.
           .project-links
-            a.btn(href=`${githubUrl}/dino-park`, target="_blank") GitHub
+            a.btn(href=`${githubUrl}/dino-park`, target="_blank", rel="noopener noreferrer") GitHub
           .tech-stack
             span.tag React
             span.tag Vite
             span.tag Vitest
-            span.tag JavaScript
             span.tag Functional Programming
-            span.tag Immutable Data
 
         article.project-card
           h3.project-title SQL Training Environment
           p.project-description
-            | A hands-on SQL training platform built for senior engineering interview prep. Work through progressive
-            | exercises—from basic SELECT statements to window functions and CTEs—against real PostgreSQL and SQLite
-            | databases. No ORM hand-holding here, just raw SQL and immediate feedback.
+            | A hands-on SQL training platform for senior engineering interview prep. Work through
+            | progressive exercises &mdash; from basic SELECT statements to window functions and CTEs.
             strong  (Work in Progress)
           details.tech-details
             summary Technical Details
             p
-              | Features a unified database abstraction layer that transparently handles PostgreSQL 9.6, PostgreSQL 13,
-              | and SQLite through a single interface. Each exercise runs in isolated schemas to prevent data conflicts,
-              | with custom Vitest assertions for SQL-specific validation (row counts, column checks, ordering, uniqueness).
-              | Docker Compose orchestrates the multi-version PostgreSQL environment.
+              | A unified database abstraction layer transparently handles PostgreSQL 9.6, 13, and
+              | SQLite through a single interface. Each exercise runs in isolated schemas, with
+              | custom Vitest assertions for SQL-specific validation.
           .project-links
-            a.btn(href=`${githubUrl}/sql-training`, target="_blank") GitHub
+            a.btn(href=`${githubUrl}/sql-training`, target="_blank", rel="noopener noreferrer") GitHub
           .tech-stack
             span.tag PostgreSQL
             span.tag SQLite
             span.tag Vitest
             span.tag Docker
             span.tag Node.js
-            span.tag Raw SQL
-
-block scripts
-  script.
-    lucide.createIcons();

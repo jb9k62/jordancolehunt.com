@@ -17,7 +17,7 @@ console.log('📝 Test data:', JSON.stringify(testData, null, 2));
 console.log('\n⏳ Making request...\n');
 
 try {
-  const response = await fetch('http://localhost:3000/api/contact', {
+  const response = await fetch('http://localhost:8080/api/contact', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

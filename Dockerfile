@@ -1,70 +1,66 @@
-# ===================================
-# Stage 1: Builder
-# ===================================
+# ============================================================================
+# Stage 1: builder — compile static site (dist-site) + Fastify server (dist-server)
+# ============================================================================
 FROM node:20-alpine AS builder
 
-# Set working directory
+# Public build-time values baked into static HTML (not secrets)
+ARG GITHUB_USERNAME=jb9k62
+ARG HCAPTCHA_SITE_KEY=
+ARG BASE_URL=https://jordancolehunt.com
+ENV GITHUB_USERNAME=${GITHUB_USERNAME} \
+    HCAPTCHA_SITE_KEY=${HCAPTCHA_SITE_KEY} \
+    BASE_URL=${BASE_URL}
+
 WORKDIR /app
 
-# Copy package files for dependency installation
+# Install dependencies (including devDeps: tsx, typescript)
 COPY package*.json ./
-
-# Install all dependencies (including devDependencies for build)
 RUN npm ci
 
-# Copy source code and views
+# Copy the whole repo (content submodule + public fonts are included)
 COPY . .
 
-# Build the NestJS application
-# This compiles TypeScript to dist/ and copies public/ to dist/public/
+# Build the static site + compile the Fastify server
 RUN npm run build
 
-# ===================================
-# Stage 2: Production
-# ===================================
+# ============================================================================
+# Stage 2: runtime — Nginx (ingress on 8080) + Fastify (127.0.0.1:3001)
+# ============================================================================
 FROM node:20-alpine
 
-# Install dumb-init for proper signal handling
-RUN apk add --no-cache dumb-init
+RUN apk add --no-cache nginx nginx-mod-http-brotli supervisor
 
-# Create non-root user for security
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nestjs -u 1001 -G nodejs
+# Non-root user for the runtime (nginx master, Fastify, supervisor)
+RUN addgroup -S app && adduser -S -G app -u 1001 app
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files
+# Runtime deps only (fastify, @fastify/cors, hcaptcha, dotenv)
 COPY package*.json ./
+RUN npm ci --omit=dev && npm cache clean --force
 
-# Install production dependencies only
-RUN npm ci --only=production && \
-    npm cache clean --force
+# Built artifacts
+COPY --from=builder /app/dist-server ./dist-server
+COPY --from=builder /app/dist-site  ./dist-site
 
-# Copy built application from builder stage
-COPY --from=builder --chown=nestjs:nodejs /app/dist ./dist
+# Runtime config
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx-security-headers.conf /etc/nginx/security-headers.conf
+COPY supervisord.conf /etc/supervisord.conf
 
-# Copy views directory (referenced by NestJS at runtime)
-COPY --from=builder --chown=nestjs:nodejs /app/views ./views
+# Give the non-root user ownership of the app + writable config + nginx runtime dirs
+RUN chown -R app:app /app && \
+    chown app:app /etc/nginx/nginx.conf /etc/nginx/security-headers.conf && \
+    mkdir -p /var/lib/nginx /var/cache/nginx /var/log/nginx /tmp/nginx && \
+    chown -R app:app /var/lib/nginx /var/cache/nginx /var/log/nginx /tmp /tmp/nginx && \
+    chmod 1777 /tmp
 
-# Copy public directory for static assets (ServeStaticModule expects it at root level)
-COPY --from=builder --chown=nestjs:nodejs /app/public ./public
+# Drop privileges: supervisor (PID 1) and everything it spawns run as 'app'
+USER app
 
-# Copy content directory for blog posts (BlogService reads Markdown from here)
-COPY --from=builder --chown=nestjs:nodejs /app/content ./content
+ENV NODE_ENV=production \
+    PORTINT=3001
 
-# Set environment variable for port (Fly.io standard)
-ENV PORT=8080 \
-    NODE_ENV=production
-
-# Expose port
 EXPOSE 8080
 
-# Switch to non-root user
-USER nestjs
-
-# Use dumb-init to handle signals properly
-ENTRYPOINT ["dumb-init", "--"]
-
-# Start the application
-CMD ["node", "dist/main"]
+CMD ["supervisord", "-c", "/etc/supervisord.conf"]

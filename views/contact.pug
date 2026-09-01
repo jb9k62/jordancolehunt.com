@@ -1,21 +1,17 @@
 extends layout
 
 block content
-  section.contact
-    .container
+  section.page
+    .content-surface
       h1.section-title Get In Touch
 
-      p.contact-description
-        | I'm always open to discussing new projects, creative ideas, or opportunities.
+      p.page-intro
+        | I&rsquo;m always open to discussing new projects, creative ideas, or opportunities.
         | Feel free to reach out!
 
       .social-links
-        a.social-link(href="https://github.com/jb9k62", target="_blank", rel="noopener noreferrer", aria-label="GitHub Profile")
-          i(data-lucide="github")
-          span GitHub
-        a.social-link(href="https://linkedin.com/in/jordancolehunt", target="_blank", rel="noopener noreferrer", aria-label="LinkedIn Profile")
-          i(data-lucide="linkedin")
-          span LinkedIn
+        a.social-link(href="https://github.com/jb9k62", target="_blank", rel="noopener noreferrer", aria-label="GitHub Profile") GitHub
+        a.social-link(href="https://linkedin.com/in/jordancolehunt", target="_blank", rel="noopener noreferrer", aria-label="LinkedIn Profile") LinkedIn
 
       form#contact-form.contact-form(action="/api/contact", method="POST")
         .form-group
@@ -40,6 +36,3 @@ block content
 block scripts
   script(src="https://js.hcaptcha.com/1/api.js", async, defer)
   script(src="/script.js")
-  script.
-    // Initialize Lucide icons
-    lucide.createIcons();

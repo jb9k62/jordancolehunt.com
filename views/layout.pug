@@ -3,48 +3,60 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(name="theme-color", content="#1a2f3d")
+    meta(name="description", content="Jordan Cole Hunt — full-stack software engineer")
+    meta(name="theme-color", content="#faf9f6")
     title= title || "Jordan Cole Hunt"
+
+    //- No-flash theme init (before first paint)
+    script.
+      (function () {
+        try {
+          var t = null;
+          var m = location.search.match(/[?&]theme=([a-z]+)/i);
+          if (m) t = m[1];
+          if (!t) t = localStorage.getItem('theme');
+          if (!t) {
+            t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+          }
+          if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            // Keep browser chrome in sync before first paint (no light flash in dark mode)
+            var tc = document.querySelector('meta[name="theme-color"]');
+            if (tc) tc.setAttribute('content', '#2e2d2b');
+          }
+        } catch (e) {}
+      })();
 
     //- Favicon
     link(rel="icon", type="image/svg+xml", href="/favicon.svg")
-    link(rel="alternate icon", href="/favicon.svg")
-    link(rel="apple-touch-icon", href="/favicon.svg")
-    link(rel="stylesheet", href="/styles/main.css")
-    link(rel="stylesheet", href="/styles/transitions.css")
-    link(rel="stylesheet", href="/styles/components.css")
-    link(rel="preconnect", href="https://fonts.googleapis.com")
-    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
-    link(href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap", rel="stylesheet")
 
-    //- Lucide Icons
-    script(src="https://unpkg.com/lucide@latest")
+    //- Styles (hashed at build time)
+    link(rel="stylesheet", href="/styles/main.css")
+    link(rel="stylesheet", href="/styles/components.css")
+    link(rel="stylesheet", href="/styles/transitions.css")
 
   body(data-page=page || "")
-    //- Navigation (persistent across all pages)
+    //- Navigation (persistent)
     include mixins/nav
     +nav(currentPath)
 
-    //- Main content container (animated by View Transitions API)
-    main
+    //- Main content
+    main.main
       block content
 
-    //- Footer (persistent across all pages)
+    //- Footer (persistent)
     include mixins/footer
     +footer()
 
-    //- Image lightbox modal (outside <main>, so it isn't trapped by
-    //- main's view-transition-name stacking context - see components.css)
+    //- Image lightbox modal
     #image-modal.image-modal(role="dialog", aria-modal="true", aria-hidden="true")
       .image-modal-content
         button.image-modal-close(type="button", aria-label="Close image") ×
         img#image-modal-img(src="", alt="")
         p#image-modal-caption.image-modal-caption
 
-    //- Scripts
-    script(src="/js/dots-background.js")
-    script(src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js")
-    script(src="/js/transitions.js")
-    script(src="/js/app.js", type="module")
+    //- Scripts (hashed at build time)
+    script(src="/js/app.js")
     script(src="/js/image-modal.js")
+    script(src="/js/transitions.js")
     block scripts

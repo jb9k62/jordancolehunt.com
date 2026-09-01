@@ -43,3 +43,7 @@ next-env.d.ts
 
 CLAUDE.md
 TODO.md
+
+# static site + server build outputs
+/dist-site
+/dist-server

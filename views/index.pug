@@ -2,12 +2,14 @@ extends layout
 
 block content
   section.hero
-    .container
-      .hero-content
-        p.hero-greeting Hello, I'm
-        h1.hero-name Jordan Hunt
-        h2.hero-tagline I turn ideas into impactful products.
-        h2.hero-title Full-stack engineer for teams who ship.
-        p.hero-description
-          | Web apps. SaaS. AI agents. Odoo. Built right, the first time.
-        a.cta-button(href="/contact") Start a Project
+    .hero-inner
+      p.hero-eyebrow Full-stack Software Engineer
+      h1.hero-quote
+        | “I turn ideas into products that ship — engineered properly, built to last.”
+      p.hero-sub
+        | Web apps, SaaS, AI agents, Odoo. Based in South Africa, working with teams everywhere.
+      a.hero-cta(href="/contact") Get in touch
+
+      .hero-links
+        a(href="/blog") Read the blog
+        a(href="/projects") See my work
