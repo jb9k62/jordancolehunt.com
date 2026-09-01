@@ -46,11 +46,12 @@ COPY --from=builder /app/dist-site  ./dist-site
 # Runtime config
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY nginx-security-headers.conf /etc/nginx/security-headers.conf
+COPY nginx-security-headers-embed.conf /etc/nginx/security-headers-embed.conf
 COPY supervisord.conf /etc/supervisord.conf
 
 # Give the non-root user ownership of the app + writable config + nginx runtime dirs
 RUN chown -R app:app /app && \
-    chown app:app /etc/nginx/nginx.conf /etc/nginx/security-headers.conf && \
+    chown app:app /etc/nginx/nginx.conf /etc/nginx/security-headers.conf /etc/nginx/security-headers-embed.conf && \
     mkdir -p /var/lib/nginx /var/cache/nginx /var/log/nginx /tmp/nginx && \
     chown -R app:app /var/lib/nginx /var/cache/nginx /var/log/nginx /tmp /tmp/nginx && \
     chmod 1777 /tmp
