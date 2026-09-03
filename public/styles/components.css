@@ -36,6 +36,8 @@
   gap: 1.4rem;
   flex-wrap: wrap;
   justify-content: flex-end;
+  /* Push links + theme toggle to the right (brand stays left) */
+  margin-left: auto;
 }
 
 .menu-link {
@@ -746,8 +748,33 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
+  /* Keep the header on a single row: brand + horizontally scrollable links + toggle */
+  .site-header {
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+  }
+
+  .brand {
+    flex: none;
+  }
+
   .menu {
     gap: 0.9rem;
+    flex: 1 1 auto;
+    min-width: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .theme-toggle {
+    flex: none;
   }
 
   .section-title {

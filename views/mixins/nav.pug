@@ -9,5 +9,5 @@ mixin nav(currentPath)
       a.menu-link(href="/blog", class=(currentPath && currentPath.startsWith('/blog') ? 'active' : '')) Blog
       a.menu-link(href="/cv", class=(currentPath === '/cv' ? 'active' : '')) CV
       a.menu-link(href="/contact", class=(currentPath === '/contact' ? 'active' : '')) Contact
-      button.theme-toggle(type="button", id="theme-toggle", aria-label="Toggle light/dark theme")
-        span.theme-toggle-label
+    button.theme-toggle(type="button", id="theme-toggle", aria-label="Toggle light/dark theme")
+      span.theme-toggle-label

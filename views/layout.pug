@@ -40,6 +40,24 @@ html(lang="en")
     include mixins/nav
     +nav(currentPath)
 
+    //- The header is fixed, and on small screens it wraps to more than one row, so
+    //- reserve its actual rendered height to prevent it from overlapping content.
+    script.
+      (function () {
+        function sync() {
+          var el = document.querySelector('.site-header');
+          if (el) document.documentElement.style.setProperty('--header-h', el.offsetHeight + 'px');
+        }
+        sync();
+        if (window.ResizeObserver) {
+          var el = document.querySelector('.site-header');
+          if (el) new ResizeObserver(sync).observe(el);
+        } else {
+          window.addEventListener('resize', sync);
+        }
+        document.addEventListener('DOMContentLoaded', sync);
+      })();
+
     //- Main content
     main.main
       block content

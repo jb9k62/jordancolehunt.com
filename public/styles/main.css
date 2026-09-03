@@ -153,6 +153,8 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
+  /* Reserve the fixed header's real (measured) height so content starts below it */
+  padding-top: var(--header-h, 3.5rem);
   display: flex;
   flex-direction: column;
   transition: background-color var(--theme-transition) ease, color var(--theme-transition) ease;
