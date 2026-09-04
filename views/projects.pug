@@ -26,16 +26,20 @@ block content
             summary Technical Details
             p
               | Built as an Odoo 17 addon. A question gets saved as &lsquo;pending&rsquo; so the request
-              | returns fast, then a cron worker runs the actual Claude tool-use loop and pushes
-              | the answer back over Odoo&rsquo;s bus channel &mdash; no polling. The agent only gets five
-              | read-only ORM tools, runs under the requesting user&rsquo;s own permissions, and
-              | per-company blacklists keep it off data it shouldn&rsquo;t touch.
+              | returns fast, then a cron worker wakes immediately via &lsquo;pg_notify&rsquo;, runs the
+              | actual Claude tool-use loop, and pushes the answer back over Odoo&rsquo;s bus channel
+              | &mdash; no polling. The agent runs under the requesting user&rsquo;s own permissions
+              | with five read-only ORM tools plus a sixth &lsquo;render_chart&rsquo; tool: when a chart
+              | earns its place, its spec renders client-side through Plotly.js in the OWL chat UI,
+              | with every LLM-supplied label sanitised against XSS before it hits the DOM.
+              | Per-company blacklists keep the agent off data it shouldn&rsquo;t touch.
           .tech-stack
             span.tag Python
             span.tag Odoo
             span.tag Anthropic API
             span.tag PostgreSQL
             span.tag OWL
+            span.tag Plotly.js
 
         article.project-card
           h3.project-title Odoo Integration Server
