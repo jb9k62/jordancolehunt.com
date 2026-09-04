@@ -67,6 +67,22 @@
   opacity: 0.6;
 }
 
+.nav-toggle {
+  display: none;
+  font-family: var(--mono-font);
+  font-size: var(--text-ui);
+  color: var(--color-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: var(--leading-ui);
+}
+
+.nav-toggle:hover {
+  opacity: 0.6;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   position: fixed;
@@ -748,7 +764,8 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
-  /* Keep the header on a single row: brand + horizontally scrollable links + toggle */
+  /* Keep the header on a single row: brand + nav toggle + theme toggle.
+     The link list itself becomes a dropdown panel, opened via .nav-toggle. */
   .site-header {
     flex-wrap: nowrap;
     gap: 0.75rem;
@@ -758,23 +775,53 @@
     flex: none;
   }
 
-  .menu {
-    gap: 0.9rem;
-    flex: 1 1 auto;
-    min-width: 0;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .menu::-webkit-scrollbar {
-    display: none;
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    margin-left: auto;
   }
 
   .theme-toggle {
     flex: none;
+  }
+
+  .menu {
+    position: fixed;
+    top: var(--header-h, 3.5rem);
+    left: 0;
+    right: 0;
+    z-index: 49;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.25rem var(--frame-inline) 0.5rem;
+    background: var(--color-bg);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
+  }
+
+  .site-header[data-nav-open="true"] .menu {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .menu-link {
+    display: block;
+    width: 100%;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+  }
+
+  .menu-link:last-child {
+    border-bottom: none;
   }
 
   .section-title {

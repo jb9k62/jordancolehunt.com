@@ -1,7 +1,7 @@
 mixin nav(currentPath)
   header.site-header
     a.brand(href="/") JCH
-    nav.menu(aria-label="Primary")
+    nav.menu#primary-menu(aria-label="Primary")
       a.menu-link(href="/", class=(currentPath === '/' ? 'active' : '')) Home
       a.menu-link(href="/skills", class=(currentPath === '/skills' ? 'active' : '')) Skills
       a.menu-link(href="/projects", class=(currentPath === '/projects' ? 'active' : '')) Projects
@@ -9,5 +9,7 @@ mixin nav(currentPath)
       a.menu-link(href="/blog", class=(currentPath && currentPath.startsWith('/blog') ? 'active' : '')) Blog
       a.menu-link(href="/cv", class=(currentPath === '/cv' ? 'active' : '')) CV
       a.menu-link(href="/contact", class=(currentPath === '/contact' ? 'active' : '')) Contact
+    button.nav-toggle(type="button", id="nav-toggle", aria-label="Toggle menu", aria-expanded="false", aria-controls="primary-menu")
+      span.nav-toggle-label MENU
     button.theme-toggle(type="button", id="theme-toggle", aria-label="Toggle light/dark theme")
       span.theme-toggle-label
