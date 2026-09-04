@@ -12,9 +12,13 @@ block content
       .projects-grid
         article.project-card
           h3.project-title Odoo AI Assistant
-          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/odoo-ai-assistant-architecture.png", data-caption="Odoo AI Assistant — architecture")
-            img.project-image(src="/images/portfolio/odoo-ai-assistant-architecture.png", alt="Odoo AI Assistant architecture diagram", loading="lazy")
-            span.project-image-badge View full size
+          .project-gallery
+            .project-image-wrapper(data-modal-image, data-gallery="odoo-ai-assistant", data-src="/images/portfolio/odoo-ai-assistant-architecture.png", data-caption="Odoo AI Assistant — architecture")
+              img.project-image(src="/images/portfolio/odoo-ai-assistant-architecture.png", alt="Odoo AI Assistant architecture diagram", loading="lazy")
+              span.project-image-badge View full size
+            .project-image-wrapper(data-modal-image, data-gallery="odoo-ai-assistant", data-src="/images/portfolio/odoo-ai-assistant-chat.png", data-caption="Odoo AI Assistant — chat example")
+              img.project-image(src="/images/portfolio/odoo-ai-assistant-chat.png", alt="Odoo AI Assistant chat example", loading="lazy")
+              span.project-image-badge View full size
           p.project-description
             | An AI chat assistant inside Odoo. Ask plain-English questions about sales, stock,
             | or CRM data and get answers back &mdash; charts included &mdash; without writing a query.

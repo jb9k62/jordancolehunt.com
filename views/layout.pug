@@ -70,8 +70,12 @@ html(lang="en")
     #image-modal.image-modal(role="dialog", aria-modal="true", aria-hidden="true")
       .image-modal-content
         button.image-modal-close(type="button", aria-label="Close image") ×
+        button.image-modal-nav.image-modal-prev(type="button", aria-label="Previous image") ‹
         img#image-modal-img(src="", alt="")
-        p#image-modal-caption.image-modal-caption
+        button.image-modal-nav.image-modal-next(type="button", aria-label="Next image") ›
+        .image-modal-footer
+          p#image-modal-caption.image-modal-caption
+          p#image-modal-counter.image-modal-counter
 
     //- Scripts (hashed at build time)
     script(src="/js/app.js")
