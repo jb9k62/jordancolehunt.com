@@ -270,3 +270,58 @@ block content
             span.tag Vitest
             span.tag Docker
             span.tag Node.js
+
+        article.project-card
+          h3.project-title okf-browse
+          .project-gallery-featured
+            .project-image-wrapper(data-modal-image, data-gallery="okf-browse", data-src="/images/portfolio/okf-browse-tui.png", data-caption="okf-browse — exploring the Star Wars example bundle")
+              img.project-image(src="/images/portfolio/okf-browse-tui.png", alt="okf-browse TUI showing the Star Wars example bundle, with a live preview on the right", loading="lazy")
+              span.project-image-badge View full size
+            p.project-gallery-caption TUI &mdash; #[button.project-gallery-more(type="button", data-gallery-open="okf-browse") click to see the code]
+            .project-gallery-extra
+              .project-image-wrapper(data-modal-image, data-gallery="okf-browse", data-src="/images/portfolio/okf-browse-code.png", data-caption="okf-browse — mermaid to ASCII in the terminal")
+                img.project-image(src="/images/portfolio/okf-browse-code.png", alt="render_mermaid_blocks rendering mermaid fenced blocks to ASCII in the terminal, falling back to the raw fence when termaid is unavailable", loading="lazy")
+          p.project-description
+            | A terminal UI for exploring any OKF knowledge bundle &mdash; browse by tag, document,
+            | or full-text body search, with Vim-flavoured navigation and mermaid diagrams rendered
+            | to ASCII right in the terminal. Ships with a self-contained conformance validator.
+          details.tech-details
+            summary Technical Details
+            p
+              | Built with Textual. Three ways in &mdash; Tags, Documents, and ranked full-text
+              | Search &mdash; each a filterable list with a live preview. The viewer is modal like a
+              | Vim buffer: `/` searches the current document with match cycling, and `]`/`[` walk
+              | links to other concepts. Mermaid fences render to ASCII via termaid at load time,
+              | falling back to the raw fence if a diagram won&rsquo;t parse.
+          .project-links
+            a.btn(href=`${githubUrl}/okf-browse`, target="_blank", rel="noopener noreferrer") GitHub
+          .tech-stack
+            span.tag Python
+            span.tag Textual
+            span.tag termaid
+            span.tag uv
+
+        article.project-card
+          h3.project-title local-ai
+          .project-gallery-featured
+            .project-image-wrapper(data-modal-image, data-gallery="local-ai", data-src="/images/portfolio/local-ai-code.png", data-caption="local-ai — auto-detecting the hardware profile")
+              img.project-image(src="/images/portfolio/local-ai-code.png", alt="selectHardware auto-detecting the active hardware profile by hostname or platform, with an explicit --hw override on top", loading="lazy")
+              span.project-image-badge View full size
+          p.project-description
+            | A config-driven launcher for local LLM inference with llama.cpp &mdash; declare a model
+            | once and get the right llama-server command on any host, CPU-only or GPU.
+          details.tech-details
+            summary Technical Details
+            p
+              | Plain Node.js with zero npm dependencies. Models carry their own sampling defaults
+              | and context presets; hardware profiles live in the same file and are auto-selected by
+              | hostname or platform, so one model list drives both an Apple Silicon Mac and a
+              | CPU-only Linux box. Also includes an eval harness that scores small models over
+              | chat, extraction, code, and tool-use tasks.
+          .project-links
+            a.btn(href=`${githubUrl}/local-ai`, target="_blank", rel="noopener noreferrer") GitHub
+          .tech-stack
+            span.tag Node.js
+            span.tag llama.cpp
+            span.tag OpenAI API
+            span.tag Eval Harness
