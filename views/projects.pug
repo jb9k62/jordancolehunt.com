@@ -12,13 +12,14 @@ block content
       .projects-grid
         article.project-card
           h3.project-title Odoo AI Assistant
-          .project-gallery
+          .project-gallery-featured
             .project-image-wrapper(data-modal-image, data-gallery="odoo-ai-assistant", data-src="/images/portfolio/odoo-ai-assistant-architecture.png", data-caption="Odoo AI Assistant — architecture")
               img.project-image(src="/images/portfolio/odoo-ai-assistant-architecture.png", alt="Odoo AI Assistant architecture diagram", loading="lazy")
               span.project-image-badge View full size
-            .project-image-wrapper(data-modal-image, data-gallery="odoo-ai-assistant", data-src="/images/portfolio/odoo-ai-assistant-chat.png", data-caption="Odoo AI Assistant — chat example")
-              img.project-image(src="/images/portfolio/odoo-ai-assistant-chat.png", alt="Odoo AI Assistant chat example", loading="lazy")
-              span.project-image-badge View full size
+            p.project-gallery-caption Architecture &mdash; #[button.project-gallery-more(type="button", data-gallery-open="odoo-ai-assistant") click to see 1 more screenshot]
+            .project-gallery-extra
+              .project-image-wrapper(data-modal-image, data-gallery="odoo-ai-assistant", data-src="/images/portfolio/odoo-ai-assistant-chat.png", data-caption="Odoo AI Assistant — chat example")
+                img.project-image(src="/images/portfolio/odoo-ai-assistant-chat.png", alt="Odoo AI Assistant chat example", loading="lazy")
           p.project-description
             | An AI chat assistant inside Odoo. Ask plain-English questions about sales, stock,
             | or CRM data and get answers back &mdash; charts included &mdash; without writing a query.
@@ -43,9 +44,14 @@ block content
 
         article.project-card
           h3.project-title Odoo Integration Server
-          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/odoo-integration-server-architecture.png", data-caption="Odoo Integration Server — architecture")
-            img.project-image(src="/images/portfolio/odoo-integration-server-architecture.png", alt="Odoo Integration Server architecture diagram", loading="lazy")
-            span.project-image-badge View full size
+          .project-gallery-featured
+            .project-image-wrapper(data-modal-image, data-gallery="odoo-integration-server", data-src="/images/portfolio/odoo-integration-server-architecture.png", data-caption="Odoo Integration Server — architecture")
+              img.project-image(src="/images/portfolio/odoo-integration-server-architecture.png", alt="Odoo Integration Server architecture diagram", loading="lazy")
+              span.project-image-badge View full size
+            p.project-gallery-caption Architecture &mdash; #[button.project-gallery-more(type="button", data-gallery-open="odoo-integration-server") click to see 1 more screenshot]
+            .project-gallery-extra
+              .project-image-wrapper(data-modal-image, data-gallery="odoo-integration-server", data-src="/images/portfolio/odoo-integration-server-code.png", data-caption="Odoo Integration Server — swappable real/mock WhatsApp client")
+                img.project-image(src="/images/portfolio/odoo-integration-server-code.png", alt="event-queue.ts showing a real vs. mock WhatsApp client swapped at construction time", loading="lazy")
           p.project-description
             | A webhook aggregator that bridges Odoo CRM with the outside world &mdash; website leads,
             | WhatsApp automation, a phone system &mdash; all handled asynchronously.
@@ -87,9 +93,18 @@ block content
 
         article.project-card
           h3.project-title ProForma Generator
-          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/proforma-generator-architecture.png", data-caption="ProForma Generator — architecture")
-            img.project-image(src="/images/portfolio/proforma-generator-architecture.png", alt="ProForma Generator architecture diagram", loading="lazy")
-            span.project-image-badge View full size
+          .project-gallery-featured
+            .project-image-wrapper(data-modal-image, data-gallery="proforma-generator", data-src="/images/portfolio/proforma-generator-architecture.png", data-caption="ProForma Generator — architecture")
+              img.project-image(src="/images/portfolio/proforma-generator-architecture.png", alt="ProForma Generator architecture diagram", loading="lazy")
+              span.project-image-badge View full size
+            p.project-gallery-caption Architecture &mdash; #[button.project-gallery-more(type="button", data-gallery-open="proforma-generator") click to see 3 more screenshots]
+            .project-gallery-extra
+              .project-image-wrapper(data-modal-image, data-gallery="proforma-generator", data-src="/images/portfolio/proforma-generator-invoice.png", data-caption="ProForma Generator — generated invoice")
+                img.project-image(src="/images/portfolio/proforma-generator-invoice.png", alt="Generated pro-forma invoice PDF with branded header, line items, VAT breakdown, and review cards", loading="lazy")
+              .project-image-wrapper(data-modal-image, data-gallery="proforma-generator", data-src="/images/portfolio/proforma-generator-intake-form.png", data-caption="ProForma Generator — agent intake form")
+                img.project-image(src="/images/portfolio/proforma-generator-intake-form.png", alt="Agent-facing intake form for building an order", loading="lazy")
+              .project-image-wrapper(data-modal-image, data-gallery="proforma-generator", data-src="/images/portfolio/proforma-generator-code-vat-math.png", data-caption="ProForma Generator — VAT math")
+                img.project-image(src="/images/portfolio/proforma-generator-code-vat-math.png", alt="order-processing.ts showing VAT-inclusive/exclusive totals computed with arbitrary-precision decimal math", loading="lazy")
           p.project-description
             | Generates branded, VAT-correct pro-forma invoice PDFs, combining live courier
             | quotes and customer reviews into one document.
@@ -109,9 +124,20 @@ block content
 
         article.project-card
           h3.project-title PartsPal
-          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/partspal-architecture.png", data-caption="PartsPal — architecture")
-            img.project-image(src="/images/portfolio/partspal-architecture.png", alt="PartsPal architecture diagram", loading="lazy")
-            span.project-image-badge View full size
+          .project-gallery-featured
+            .project-image-wrapper(data-modal-image, data-gallery="partspal", data-src="/images/portfolio/partspal-architecture.png", data-caption="PartsPal — architecture")
+              img.project-image(src="/images/portfolio/partspal-architecture.png", alt="PartsPal architecture diagram", loading="lazy")
+              span.project-image-badge View full size
+            p.project-gallery-caption Architecture &mdash; #[button.project-gallery-more(type="button", data-gallery-open="partspal") click to see 4 more screenshots]
+            .project-gallery-extra
+              .project-image-wrapper(data-modal-image, data-gallery="partspal", data-src="/images/portfolio/partspal-landing.png", data-caption="PartsPal — landing page")
+                img.project-image(src="/images/portfolio/partspal-landing.png", alt="PartsPal landing page: connect with auto parts suppliers, get quotes fast", loading="lazy")
+              .project-image-wrapper(data-modal-image, data-gallery="partspal", data-src="/images/portfolio/partspal-request-form.png", data-caption="PartsPal — part request form")
+                img.project-image(src="/images/portfolio/partspal-request-form.png", alt="Part request submission form with an uploaded photo and vehicle details", loading="lazy")
+              .project-image-wrapper(data-modal-image, data-gallery="partspal", data-src="/images/portfolio/partspal-quotes.png", data-caption="PartsPal — competing supplier quotes")
+                img.project-image(src="/images/portfolio/partspal-quotes.png", alt="Request detail page showing two competing supplier quotes with pricing, condition, and warranty", loading="lazy")
+              .project-image-wrapper(data-modal-image, data-gallery="partspal", data-src="/images/portfolio/partspal-code-image-processing.png", data-caption="PartsPal — image processing")
+                img.project-image(src="/images/portfolio/partspal-code-image-processing.png", alt="image-processing.service.ts showing parallel multi-size WebP resizing and blur-placeholder generation", loading="lazy")
           p.project-description
             | A South African auto-parts marketplace. Customers submit a part request with a
             | photo, suppliers send back competing quotes.
@@ -131,9 +157,16 @@ block content
 
         article.project-card
           h3.project-title Call Center Node Web Server
-          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/italk-web-server-architecture.png", data-caption="Call Center Node Web Server — architecture")
-            img.project-image(src="/images/portfolio/italk-web-server-architecture.png", alt="Call Center Node Web Server architecture diagram", loading="lazy")
-            span.project-image-badge View full size
+          .project-gallery-featured
+            .project-image-wrapper(data-modal-image, data-gallery="call-center-web-server", data-src="/images/portfolio/call-center-web-server-architecture.png", data-caption="Call Center Node Web Server — architecture")
+              img.project-image(src="/images/portfolio/call-center-web-server-architecture.png", alt="Call Center Node Web Server architecture diagram", loading="lazy")
+              span.project-image-badge View full size
+            p.project-gallery-caption Architecture &mdash; #[button.project-gallery-more(type="button", data-gallery-open="call-center-web-server") click to see 2 more screenshots]
+            .project-gallery-extra
+              .project-image-wrapper(data-modal-image, data-gallery="call-center-web-server", data-src="/images/portfolio/call-center-web-server-dashboard.png", data-caption="Call Center Node Web Server — agent dashboard")
+                img.project-image(src="/images/portfolio/call-center-web-server-dashboard.png", alt="Agent dashboard for an active lead, showing dialer buttons, customer and address capture, ID lookup, and policy fields", loading="lazy")
+              .project-image-wrapper(data-modal-image, data-gallery="call-center-web-server", data-src="/images/portfolio/call-center-web-server-code-validation.png", data-caption="Call Center Node Web Server — shared validation logic")
+                img.project-image(src="/images/portfolio/call-center-web-server-code-validation.png", alt="validation.ts showing shared South African ID number validation logic used by both client and server", loading="lazy")
           p.project-description
             | A NestJS rebuild of legacy classic-ASP call-center tooling &mdash; campaign management,
             | lead distribution, dialer integration &mdash; migrated module by module instead of a

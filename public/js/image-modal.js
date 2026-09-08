@@ -98,6 +98,14 @@
     });
   });
 
+  // "click to see more" buttons: open an existing named gallery at its
+  // first image without registering as a gallery item themselves.
+  document.querySelectorAll('[data-gallery-open]').forEach((btn) => {
+    const gallery = galleries.get(btn.dataset.galleryOpen);
+    if (!gallery) return;
+    btn.addEventListener('click', () => openModal(gallery, 0));
+  });
+
   closeBtn.addEventListener('click', closeModal);
   prevBtn.addEventListener('click', showPrev);
   nextBtn.addEventListener('click', showNext);
