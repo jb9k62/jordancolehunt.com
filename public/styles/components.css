@@ -146,6 +146,15 @@
   margin-bottom: 2.4rem;
 }
 
+/* Quiet one-liner of technical keywords for readers who want them. */
+.hero-tech {
+  font-family: var(--mono-font);
+  font-size: var(--font-size-xs);
+  color: var(--color-muted);
+  margin-top: -1.2rem;
+  margin-bottom: 2.4rem;
+}
+
 .hero-cta {
   display: inline-block;
   font-family: var(--mono-font);
@@ -238,6 +247,14 @@
   color: var(--color-text);
   padding: 0.35rem 0 0.35rem 1.4rem;
   position: relative;
+}
+
+.tick-list li strong {
+  font-weight: 600;
+}
+
+.skill-group .tech-stack {
+  margin-top: 0.9rem;
 }
 
 .tick-list li::before {

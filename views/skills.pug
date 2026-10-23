@@ -3,40 +3,88 @@ extends layout
 block content
   section.page
     .content-surface
-      h1.section-title What I Work With
+      h1.section-title What I Do
+
+      p.page-intro
+        | Most software has three layers: the screens you see, the engine behind them that
+        | stores and moves information, and the setup that keeps it all online. I work across
+        | all three &mdash; that&rsquo;s what &ldquo;full-stack&rdquo; means &mdash; so one
+        | person can take your idea from sketch to launch.
 
       .skill-group
         h2.group-title Frontend
-        p.group-desc Pixel-perfect, performant interfaces.
+        p.group-desc The part you see and click &mdash; websites, dashboards and apps.
         ul.tick-list
-          li TypeScript, HTML5 &amp; CSS3
-          li React &amp; Next.js
-          li Responsive Design
-          li Browser APIs &amp; Web Performance
+          li Clean, easy-to-use screens that work on phones, tablets and desktops
+          li Pages that load quickly, even on a patchy mobile connection
+          li Interactive tools like forms, quote builders, dashboards and booking flows
+        .tech-stack(aria-label="Tools")
+          span.tag TypeScript
+          span.tag HTML &amp; CSS
+          span.tag React
+          span.tag Next.js
+          span.tag Responsive Design
+          span.tag Web Performance
 
       .skill-group
         h2.group-title Backend
-        p.group-desc Scalable systems that stay up.
+        p.group-desc The engine behind the screens &mdash; where information is stored, processed and kept safe.
         ul.tick-list
-          li TypeScript &amp; Python
-          li Node.js, NestJS &amp; FastAPI
-          li PostgreSQL, Redis, SQLite &amp; MSSQL
-          li Auth, APIs &amp; Event Queues
+          li Databases that keep customer, sales and stock records organised
+          li Secure logins, so the right people see the right information
+          li Connecting your systems so they talk to each other &mdash; website, CRM, WhatsApp, phones
+          li Background automations, so nobody has to copy and paste between apps
+        .tech-stack(aria-label="Tools")
+          span.tag TypeScript
+          span.tag Python
+          span.tag Node.js
+          span.tag NestJS
+          span.tag FastAPI
+          span.tag PostgreSQL
+          span.tag Redis
+          span.tag SQLite
+          span.tag MSSQL
+          span.tag APIs
+          span.tag Event Queues
 
       .skill-group
         h2.group-title Infrastructure
-        p.group-desc Ship fast, stay stable.
+        p.group-desc Getting software online, and keeping it there.
         ul.tick-list
-          li Docker &amp; CI/CD
-          li AWS, GCP &amp; Fly
-          li Git &amp; GitHub Actions
-          li Playwright &amp; Jest
+          li Cloud hosting, so your app is up 24/7 &mdash; load shedding or not
+          li Automatic testing, so new changes don&rsquo;t break what already works
+          li Safe, repeatable releases &mdash; updates go out in minutes, not with crossed fingers
+        .tech-stack(aria-label="Tools")
+          span.tag Docker
+          span.tag CI/CD
+          span.tag AWS
+          span.tag GCP
+          span.tag Fly.io
+          span.tag GitHub Actions
+          span.tag Playwright
+          span.tag Jest
 
       .skill-group
         h2.group-title Specialisations
         p.group-desc Where I go deep.
         ul.tick-list
-          li Distributed Systems &amp; Architecture
-          li AI Agents &amp; LLMs
-          li Odoo Implementation
-          li Performance &amp; Scale
+          li
+            strong AI assistants.
+            |  Chat assistants that answer questions using your own business data, and
+            | automations that take repetitive work off your team&rsquo;s plate. Think
+            | ChatGPT, but plugged into your systems and following your rules.
+          li
+            strong Odoo.
+            |  All-in-one business software that runs sales, invoicing, stock and customer
+            | records in one place. I set it up, tailor it to how you work, and connect it to
+            | everything else you use.
+          li
+            strong Software that grows with you.
+            |  Systems designed to stay fast as you go from ten users to ten thousand, and
+            | that keep running even when one part has a bad day.
+        .tech-stack(aria-label="Tools")
+          span.tag AI Agents &amp; LLMs
+          span.tag Odoo
+          span.tag Distributed Systems
+          span.tag Architecture
+          span.tag Performance &amp; Scale
