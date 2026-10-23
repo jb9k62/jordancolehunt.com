@@ -3,7 +3,47 @@ extends layout
 block content
   section.page
     .content-surface.wide
-      h1.section-title Professional &amp; Client Work
+      h1.section-title Open Source
+
+      .projects-grid
+        article.project-card
+          h3.project-title good2go (okf-bootstrap)
+          .project-gallery-featured
+            .project-image-wrapper(data-modal-image, data-gallery="okf-bootstrap", data-src="/images/portfolio/okf-bootstrap-viewer.png", data-caption="good2go — the OKF viewer, with the concept graph and a Mermaid diagram")
+              img.project-image(src="/images/portfolio/okf-bootstrap-viewer.png", alt="The OKF viewer: a graph of the bundle's concepts on the left, and the Architecture concept open on the right with a Mermaid diagram", loading="lazy")
+              span.project-image-badge View full size
+            p.project-gallery-caption Viewer &mdash; #[button.project-gallery-more(type="button", data-gallery-open="okf-bootstrap") click to see 2 more screenshots]
+            .project-gallery-extra
+              .project-image-wrapper(data-modal-image, data-gallery="okf-bootstrap", data-src="/images/portfolio/okf-bootstrap-search.png", data-caption="good2go — ranked search with a live preview")
+                img.project-image(src="/images/portfolio/okf-bootstrap-search.png", alt="The search modal over the viewer, with ranked results, trust and freshness badges, and a preview of the top result", loading="lazy")
+              .project-image-wrapper(data-modal-image, data-gallery="okf-bootstrap", data-src="/images/portfolio/okf-bootstrap-widget.png", data-caption="good2go — an interactive explainer widget")
+                img.project-image(src="/images/portfolio/okf-bootstrap-widget.png", alt="A retry widget with no jitter: five thin spikes of 100 retries at once, showing the thundering herd problem", loading="lazy")
+          p.project-description
+            | Open-source agent skills that set up design docs your agents write and your team can
+            | actually follow &mdash; plus a memory the agents keep for themselves. Works with
+            | Claude Code and pi.
+          details.tech-details
+            summary Technical Details
+            p
+              | Scaffolds two OKF (Open Knowledge Format) bundles in any project. &lsquo;okf/&rsquo;
+              | holds plain-markdown design docs, checked by a validator and rendered into one
+              | self-contained HTML viewer with a concept graph, ranked search, and interactive
+              | explainers &mdash; quizzes and React widgets you can poke at. Mermaid diagrams are
+              | parsed and then rendered in headless Chromium as a quality gate. &lsquo;edukai/&rsquo;
+              | is the agent&rsquo;s memory: one-claim lessons pinned to file digests with re-runnable
+              | checks, so lessons that stop being true get flagged. Published to npm with provenance.
+          .project-links
+            a.btn(href=`${githubUrl}/okf-bootstrap`, target="_blank", rel="noopener noreferrer") GitHub
+          .tech-stack
+            span.tag TypeScript
+            span.tag Node.js
+            span.tag OKF
+            span.tag Mermaid
+            span.tag React
+            span.tag Playwright
+            span.tag Claude Code
+
+      h2.section-title.section-title--pad-top Professional &amp; Client Work
       p.page-intro
         | Software I&rsquo;ve built and shipped for clients. The repos are private, so no
         | GitHub link here &mdash; just what each project does, how it&rsquo;s built, and the
