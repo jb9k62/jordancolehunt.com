@@ -228,6 +228,82 @@ block content
 
       .projects-grid
         article.project-card
+          h3.project-title Pulse Surveys
+          .project-gallery-featured
+            .project-image-wrapper(data-modal-image, data-gallery="pulse-survey", data-src="/images/portfolio/pulse-summary.png", data-caption="Pulse Surveys — a manager's weekly summary")
+              img.project-image(src="/images/portfolio/pulse-summary.png", alt="Weekly summary for the Acme weekly pulse: 50% completion, 2 of 4 members, with a bar per question", loading="lazy")
+              span.project-image-badge View full size
+            p.project-gallery-caption Weekly summary &mdash; #[button.project-gallery-more(type="button", data-gallery-open="pulse-survey") click to see 2 more screenshots]
+            .project-gallery-extra
+              .project-image-wrapper(data-modal-image, data-gallery="pulse-survey", data-src="/images/portfolio/pulse-member-form.png", data-caption="Pulse Surveys — a member answering this week's questions")
+                img.project-image(src="/images/portfolio/pulse-member-form.png", alt="The Blue River weekly pulse form with a 1 to 5 rating, a yes/no question and a second rating", loading="lazy")
+              .project-image-wrapper(data-modal-image, data-gallery="pulse-survey", data-src="/images/portfolio/pulse-sign-in.png", data-caption="Pulse Surveys — development sign-in across two organisations")
+                img.project-image(src="/images/portfolio/pulse-sign-in.png", alt="Development sign-in listing managers and members for Acme Manufacturing and Blue River Health", loading="lazy")
+          p.project-description
+            | A weekly check-in tool for teams. Organisations run a short three-question survey,
+            | people answer once a week, and managers get a clear summary &mdash; with every
+            | organisation&rsquo;s data walled off from every other.
+          details.tech-details
+            summary Technical Details
+            p
+              | Tenant isolation is enforced by PostgreSQL itself, not just the app: row-level
+              | security policies, and a NestJS API that connects as a role owning nothing, so a
+              | forgotten filter in the code still can&rsquo;t leak another organisation&rsquo;s
+              | data &mdash; and the isolation tests connect as that role to prove it. The business
+              | rules live in the schema too: a fourth question or a half-filled answer simply
+              | can&rsquo;t be stored, and &lsquo;one response per person per week&rsquo; is a unique
+              | index. One set of Zod schemas is the contract for both the API and the React 19
+              | front end. Every decision is written up in an OKF design bundle, alongside a log of
+              | how the AI agents were steered and checked.
+          .project-links
+            a.btn(href=`${githubUrl}/pulse-survey`, target="_blank", rel="noopener noreferrer") GitHub
+          .tech-stack
+            span.tag TypeScript
+            span.tag NestJS
+            span.tag PostgreSQL
+            span.tag Row-Level Security
+            span.tag Drizzle
+            span.tag React
+            span.tag Zod
+            span.tag Playwright
+
+        article.project-card
+          h3.project-title Product Catalogue Search
+          .project-gallery-featured
+            .project-image-wrapper(data-modal-image, data-gallery="product-catalog-search", data-src="/images/portfolio/catalog-typeahead.png", data-caption="Product Catalogue Search — typeahead, with one item degraded gracefully")
+              img.project-image(src="/images/portfolio/catalog-typeahead.png", alt="Typing 'tra' shows trail shoe suggestions above ranked results, one marked Price unavailable", loading="lazy")
+              span.project-image-badge View full size
+            p.project-gallery-caption Typeahead &mdash; #[button.project-gallery-more(type="button", data-gallery-open="product-catalog-search") click to see 1 more screenshot]
+            .project-gallery-extra
+              .project-image-wrapper(data-modal-image, data-gallery="product-catalog-search", data-src="/images/portfolio/catalog-results.png", data-caption="Product Catalogue Search — filtered and sorted by price")
+                img.project-image(src="/images/portfolio/catalog-results.png", alt="Footwear results sorted by price, each with live price, availability and delivery estimate", loading="lazy")
+          p.project-description
+            | Shop search that keeps up while you type. Results come back ranked, with live
+            | prices, stock and delivery estimates &mdash; and when a supplier has a wobble, the
+            | page carries on without it.
+          details.tech-details
+            summary Technical Details
+            p
+              | An Express 5 API builds an inverted index at startup, so every search is a lookup
+              | rather than a scan: name matches outrank tags, and a prefix fallback catches
+              | half-typed words. Only the page you&rsquo;re looking at gets live data, fetched in
+              | parallel under a 3-second budget, and a failed lookup degrades that one item, never
+              | the whole page. The client is hand-rolled TypeScript with no framework &mdash; keyed
+              | DOM diffing, View Transitions, typeahead, and cancellation that runs from the
+              | browser right through to the upstream call, so a fast typist never sees stale
+              | results.
+          .project-links
+            a.btn(href=`${githubUrl}/product-catalog-search`, target="_blank", rel="noopener noreferrer") GitHub
+          .tech-stack
+            span.tag TypeScript
+            span.tag Node.js
+            span.tag Express
+            span.tag Vanilla TS
+            span.tag Vite
+            span.tag Vitest
+            span.tag Playwright
+
+        article.project-card
           h3.project-title Personal Website
           p.project-description
             | You&rsquo;re looking at it! A static site served by Nginx with a tiny Fastify contact

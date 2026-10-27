@@ -19,3 +19,9 @@
 [submodule "portfolio/okf-bootstrap"]
 	path = portfolio/okf-bootstrap
 	url = git@github.com:jb9k62/okf-bootstrap.git
+[submodule "portfolio/pulse-survey"]
+	path = portfolio/pulse-survey
+	url = git@github.com:jb9k62/pulse-survey.git
+[submodule "portfolio/product-catalog-search"]
+	path = portfolio/product-catalog-search
+	url = git@github.com:jb9k62/product-catalog-search.git
