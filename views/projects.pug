@@ -165,13 +165,11 @@ block content
         article.project-card
           h3.project-title PartsPal
           .project-gallery-featured
-            .project-image-wrapper(data-modal-image, data-gallery="partspal", data-src="/images/portfolio/partspal-landing.png", data-caption="PartsPal — landing page")
-              img.project-image(src="/images/portfolio/partspal-landing.png", alt="PartsPal landing page: connect with auto parts suppliers, get quotes fast", loading="lazy")
+            .project-image-wrapper(data-modal-image, data-gallery="partspal", data-src="/images/portfolio/partspal-request-form.png", data-caption="PartsPal — part request form")
+              img.project-image(src="/images/portfolio/partspal-request-form.png", alt="Part request submission form with an uploaded photo and vehicle details", loading="lazy")
               span.project-image-badge View full size
-            p.project-gallery-caption Landing page &mdash; #[button.project-gallery-more(type="button", data-gallery-open="partspal") click to see 4 more screenshots]
+            p.project-gallery-caption Request form &mdash; #[button.project-gallery-more(type="button", data-gallery-open="partspal") click to see 3 more screenshots]
             .project-gallery-extra
-              .project-image-wrapper(data-modal-image, data-gallery="partspal", data-src="/images/portfolio/partspal-request-form.png", data-caption="PartsPal — part request form")
-                img.project-image(src="/images/portfolio/partspal-request-form.png", alt="Part request submission form with an uploaded photo and vehicle details", loading="lazy")
               .project-image-wrapper(data-modal-image, data-gallery="partspal", data-src="/images/portfolio/partspal-quotes.png", data-caption="PartsPal — competing supplier quotes")
                 img.project-image(src="/images/portfolio/partspal-quotes.png", alt="Request detail page showing two competing supplier quotes with pricing, condition, and warranty", loading="lazy")
               .project-image-wrapper(data-modal-image, data-gallery="partspal", data-src="/images/portfolio/partspal-architecture.png", data-caption="PartsPal — architecture")
@@ -326,12 +324,11 @@ block content
             span.tag Zoho Mail
 
         article.project-card
-          h3.project-title Lane Racer
+          h3.project-title Lane Racer #[span.project-status Work in progress]
           p.project-description
             | A retro-style racing game that runs right in your terminal. Four AI drivers compete
             | to dodge obstacles and cross the finish line first. Built twice &mdash; once in
             | JavaScript, once in Python.
-            strong  (Work in Progress)
           details.tech-details
             summary Technical Details
             p
@@ -350,6 +347,9 @@ block content
 
         article.project-card
           h3.project-title Dino Park
+          .project-image-wrapper(data-modal-image, data-src="/images/portfolio/dino-park-app.png", data-caption="Dino Park — the live park grid, with a dangerous cell selected")
+            img.project-image(src="/images/portfolio/dino-park-app.png", alt="Dino Park: park statistics and filters on the left, the 26×16 enclosure grid with two dangerous cells in red, and a details panel for cell A16 showing a hungry Brachiosaurus", loading="lazy")
+            span.project-image-badge View full size
           p.project-description
             | Ever wanted to run a dinosaur park without the risk of being eaten? Manage a grid
             | of enclosures, tracking feeding schedules, movements, and maintenance alerts.
@@ -360,6 +360,7 @@ block content
               | events to manage a 26&times;16 park grid using immutable data structures.
           .project-links
             a.btn(href=`${githubUrl}/dino-park`, target="_blank", rel="noopener noreferrer") GitHub
+            a.btn(href="https://dino-park.fly.dev/", target="_blank", rel="noopener noreferrer") Live App
           .tech-stack
             span.tag React
             span.tag Vite
@@ -367,11 +368,10 @@ block content
             span.tag Functional Programming
 
         article.project-card
-          h3.project-title SQL Training Environment
+          h3.project-title SQL Training Environment #[span.project-status Work in progress]
           p.project-description
             | A hands-on SQL training platform for senior engineering interview prep. Work through
             | progressive exercises &mdash; from basic SELECT statements to window functions and CTEs.
-            strong  (Work in Progress)
           details.tech-details
             summary Technical Details
             p

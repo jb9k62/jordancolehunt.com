@@ -275,21 +275,48 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2.5rem;
+  gap: 3.5rem 2.5rem;
   margin-top: 1rem;
 }
 
+/* A hairline above each card gives the grid a clear rhythm without boxing it in. */
 .project-card {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.9rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--color-faint);
+  transition: border-color var(--theme-transition) ease;
 }
 
 .project-title {
-  font-size: var(--text-lg);
+  font-size: var(--text-card-title);
   font-style: italic;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
   color: var(--color-text);
+  margin-bottom: 0.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
   transition: color var(--theme-transition) ease;
+}
+
+/* Status pill that sits beside a title, e.g. "Work in progress". */
+.project-status {
+  font-family: var(--mono-font);
+  font-size: var(--font-size-xs);
+  font-style: normal;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--color-muted);
+  border: 1px dashed var(--color-faint);
+  border-radius: 3px;
+  padding: 4px 8px;
+  white-space: nowrap;
+  transition: color var(--theme-transition) ease, border-color var(--theme-transition) ease;
 }
 
 .project-gallery-featured {
@@ -358,7 +385,8 @@
 }
 
 .project-description {
-  font-size: var(--text-reading);
+  font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.125rem);
+  line-height: var(--leading-body);
   color: var(--color-text);
 }
 
@@ -393,6 +421,9 @@
 }
 
 .project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   margin-top: 0.4rem;
 }
 
